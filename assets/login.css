@@ -1,0 +1,75 @@
+#connection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+.connection-title {
+    padding: 3% 0;
+    color: #14171A;
+}
+
+.connection-img {
+    padding-top: 1.5%;
+    width: 3vw;
+}
+
+.connection-form  {
+    width: 40%;
+}
+
+.connection-form .connection-form_label .connection-form_mdp_input,
+.connection-form .connection-form_label .connection-form_email_input {
+    color: black ;
+	background: none;
+	border: none;
+    line-height: 1em;
+	font-weight: 500;
+	padding: 0.25em 0.25em;
+    width: 98%;
+    border-bottom: #657786 solid 2px;
+}
+
+.connection-form .connection-form_label .connection-form_email_input:focus,
+.connection-form .connection-form_label .connection-form_mdp_input:focus {
+    border-bottom: #1DA1F2 solid 2px;
+}
+
+.connection-form .connection-form_label .label-text{
+    color: #657786 ;
+	font-size: 0.9em;
+    padding-left: 0.5em;
+}
+
+.connection-form .connection-form_mdp, .connection-form .connection-form_email{
+    background-color:#F5F8FA ;
+    margin-bottom: 5%;
+}
+
+
+.connection-button {
+    text-decoration:none;	
+	background-color:#8DCFF8;
+	border:none;
+    border-radius:100px;
+    width: 40%;
+    padding: 1% 0;
+}
+
+.connection-button .connection-button_link{
+   color: white;
+   font-weight: bold;
+   font-size: 0.9em;
+}
+
+.connection-container{
+    display: flex;
+    padding-top: 2%;
+    justify-content: space-around;
+    width: 25%;
+}
+
+.connection-container .connection-container_link {
+    color: #1DA1F2;
+    font-size: 0.9em;
+}
