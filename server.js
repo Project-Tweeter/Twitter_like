@@ -24,14 +24,19 @@ app.use(session({
     cookie: { secure: false }
   }))
 
+const Handlebars = require("handlebars");
+const MomentHandler = require("handlebars.moment");
+MomentHandler.registerHelpers(Handlebars);
 
-  app.get('/home', (request,response) => {
+
+// LE GET ET POST DU HOME AVEC LES TWEETS 
+app.get('/home', (request,response) => {
     let Message = require('./models/message')
-    Message.all(function(message){
+    Message.all(function(messages){
         response.render('home', {
             title:"Accueil",
             style: "home.css",
-            message: message})
+            message: messages})
     })
 })
 
@@ -48,6 +53,24 @@ app.post('/home', (request,response)=>{
     })
    }
 })
+// FIN
+
+// LE GET ET POST DU HOME AVEC LES TWEETS 
+app.get('/signup', (request,response) => {
+    response.render('signup', {
+        title:"Connexion",
+        style: "signup.css",
+    })
+})
+
+app.post('/signup', (request,response)=>{
+  
+    let User = require('./models/user')
+    User.create(request.body.message, function (){
+        response.redirect('/login')
+    })
+})
+// FIN
 
 app.get('/account', (request,response) => {
     response.render('account', {
@@ -61,6 +84,7 @@ app.get('/login', (request,response) => {
         style: "login.css",
     })
 })
+
 
 app.get("*", (request, response) => {
     response.status(404).render("404");

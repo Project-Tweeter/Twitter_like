@@ -68,6 +68,11 @@ h1 {
     border-radius:100px;
     width: 40%;
     padding: 1% 0;
+    transition: 0.5s;
+}
+
+.connection-button:hover {	
+	background-color:#1A91DA;
 }
 
 .connection-button .connection-button_link{
@@ -87,3 +92,4 @@ h1 {
     color: #1DA1F2;
     font-size: 0.9em;
 }
+
