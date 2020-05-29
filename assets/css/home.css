@@ -1,0 +1,124 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 1.3em;
+}
+
+#home_main {
+    display: flex;
+}
+
+#login_center, #login_left, #login_right {
+    display: flex;
+    flex-direction: column;
+    border: 0.5px solid rgb(215, 221, 224) ;
+    flex: 1;
+ }
+ #login_center {
+    flex: 2;
+ }
+
+ .login_container1 {
+     padding: 2% 0;
+     border-bottom: 0.5px solid rgb(215, 221, 224) ;
+ }
+
+ .login_container1-title{
+     font-size: 1.1em;
+     padding-left: 2%;
+ }
+
+.login_container2{
+display: flex;
+justify-content: center;
+padding: 2% 0;
+}
+
+ .login-form .login-form_label #message{
+	background: none;
+	border: none;
+	font-weight: 500;
+    width:100%;
+    resize: none;
+}
+
+.login_container3 {
+    display: flex;
+    justify-content: right;
+    padding-right: 2%;
+    padding-bottom: 1.5%;
+}
+
+.login-button {
+    text-decoration:none;	
+	background-color:#1A91DA;
+	border:none;
+    border-radius:100px;
+    width: 15%;
+    padding: 1.8% 0;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+
+.login_container3 {
+    padding-bottom: 2%;
+    background-color: #E6ECF0;
+}
+
+.login_container4-tweet{
+    display: flex;
+}
+
+.login_container4-img{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login_container4-img img{
+    border-radius: 100%;
+    width: 100%;
+}
+
+.login_container4-content{
+    width: 90%;
+    padding-left: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.name h1{
+    font-size: 0.9em;
+    padding-top: 1%;
+}
+
+.content{
+   padding-top: 1%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.login-img {
+    width: 2.2vw;
+    padding: 3% 10%;
+}
