@@ -3,12 +3,14 @@ const app = express();
 const expbs = require('express-handlebars')
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const isAuth = require('./middlewares/isAuth');
 
 app.engine('.hbs', expbs({
     defaultLayout: "main",
     extname: ".hbs"
 }));
 app.set('view engine', 'hbs');
+app.use("/:username/assets", express.static("assets"));
 app.use("/assets", express.static("assets"));
 
 
@@ -28,34 +30,35 @@ const Handlebars = require("handlebars");
 const MomentHandler = require("handlebars.moment");
 MomentHandler.registerHelpers(Handlebars);
 
+const passport = require("./passport/local_auth.js")();
+app.use(passport.initialize());
+app.use(passport.session());
 
-// LE GET ET POST DU HOME AVEC LES TWEETS 
-app.get('/home', (request,response) => {
-    let Message = require('./models/message')
-    Message.all(function(messages){
-        response.render('home', {
-            title:"Accueil",
-            style: "home.css",
-            message: messages})
+
+// LE GET ET POST DU LOGIN AVEC LES TWEETS 
+app.get('/', (request,response) => {
+    response.render('login', {
+        title:"Login",
+        style: "login.css",
     })
 })
 
-app.post('/home', (request,response)=>{
-    // si le contenu du message est vide alors on lance une session error 
-   if (request.body.message === undefined || request.body.message ===''){
-       console.log("Problem !")
-       response.redirect('/home')
-   } 
-   else {
-    let Message = require('./models/message')
-    Message.create(request.body.message, function (){
-        response.redirect('/home')
-    })
-   }
-})
+// app.post('/', passport.authenticate('local', { 
+//     successRedirect: '/home',
+//     failureRedirect: '/' }));
+
+app.post(
+    "/",
+    passport.authenticate("local", { failureRedirect: "/" }),
+    function (req, res) {
+        console.log(req.user);
+        res.redirect('/home/' + req.user.username);
+    }
+);
+// res.redirect('/home/' + req.user.username);
 // FIN
 
-// LE GET ET POST DU HOME AVEC LES TWEETS 
+// LE GET ET POST DU SIGNUP AVEC LES TWEETS 
 app.get('/signup', (request,response) => {
     response.render('signup', {
         title:"Connexion",
@@ -66,28 +69,59 @@ app.get('/signup', (request,response) => {
 app.post('/signup', (request,response)=>{
   
     let User = require('./models/user')
-    User.create(request.body.message, function (){
-        response.redirect('/login')
+    User.create(
+        request.body.nom,
+        request.body.prenom, 
+        request.body.email,
+        request.body.birthday,
+        request.body.password,
+        request.body.username,
+        function (){
+        console.log('user crée !')
+        response.redirect('/')
     })
 })
 // FIN
 
-app.get('/account', (request,response) => {
-    response.render('account', {
-        title:"Compte",
-        style: "account.css"
-    })
-})
-app.get('/login', (request,response) => {
-    response.render('login', {
-        title:"Login",
-        style: "login.css",
+// LE GET ET POST DU HOME AVEC LES TWEETS 
+app.use(isAuth)
+app.get('/home/:username',(request,response) => {
+    let Message = require('./models/message')
+    Message.all(function(messages){
+        console.log(messages)
+        response.render('home', {
+            title:"Accueil",
+            style: "home.css",
+            message: messages})
     })
 })
 
+app.post('/home/:username', (request,response)=>{
+    // si le contenu du message est vide alors on lance une session error 
+   if (request.body.message === undefined || request.body.message ===''){
+       console.log("Problem !")
+       response.redirect('/home/' + request.user.username);
+   }
+   else {
+        let Message = require('./models/message')
+        console.log(request.user.id_user)
+        Message.create(request.user.id_user, request.body.message, function (){
+        response.redirect('/home/' + request.user.username);
+    })
+   }
+})
+// FIN
+
+app.get('/profil/:username', (request,response) => {
+  console.log(request.params)
+  response.render('profil', {
+    title:"Profil",
+    style: "profil.css"
+})
+})
 
 app.get("*", (request, response) => {
     response.status(404).render("404");
   });
 
-app.listen(2000);
+app.listen(4000);

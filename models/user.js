@@ -1,15 +1,45 @@
-let connection = require('../config/db')
-// let moment = require('moment')
+let connection = require('../config/db');
+
 
 class User {
 
-    static create(content, callback){
-        connection.query('INSERT INTO User SET nom = ?, prénom = ?, email = ?, date_de_naissance = ?, password = ?', [content], (err, result) => { 
+    constructor(user){
+            this.username = user.username
+            this.password = user.password
+        }
+
+        static hashingPassword(password){
+          let bcrypt = require('bcryptjs');
+          let salt = bcrypt.genSaltSync(12);
+          let hash = bcrypt.hashSync(password, salt);
+          return hash
+        }
+
+        static create(nom, prenom, email, birthday, password, username, callback){
+            password = this.hashingPassword(password);
+            connection.query('INSERT INTO User SET nom = ?, prenom = ?, email = ?, birthday = ?,  password = ?, username = ?', [nom,prenom,email,birthday,password,username], (err, result) => { 
             if (err) throw err
             callback(result)
-        })
-    }
+            })
+        }
+
+
+        static findUser(username, callback) {
+          connection.query("SELECT * FROM User WHERE username = ?", [username], (err, user) =>{
+            if (err) throw err
+            callback(err, user);
+          });
+}
+
+
+//  static hashingPassword(password) {
+//   var bcrypt = require('bcryptjs')
+//   var salt = bcrypt.genSaltSync(12)
+//   var hash = bcrypt.hashSync(password, salt)
+
+//   return hash
+// }
 
 }
 
-module.exports = User
+module.exports= User;

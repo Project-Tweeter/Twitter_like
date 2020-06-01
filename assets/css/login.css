@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     font-family: Helvetica, sans-serif;
+    outline:none;
 }
 
 a{
@@ -66,19 +67,16 @@ h1 {
 	background-color:#8DCFF8;
 	border:none;
     border-radius:100px;
-    width: 40%;
-    padding: 1% 0;
+    width: 100%;
+    padding: 3% 0;
     transition: 0.5s;
+    color: white;
+   font-weight: bold;
+   font-size: 0.9em;
 }
 
 .connection-button:hover {	
 	background-color:#1A91DA;
-}
-
-.connection-button .connection-button_link{
-   color: white;
-   font-weight: bold;
-   font-size: 0.9em;
 }
 
 .connection-container{
