@@ -16,6 +16,13 @@ class Message {
             callback(rows)
         })
     }
+
+    static allUser(callback) {
+        connection.query('SELECT * FROM Tweet LEFT JOIN User ON Tweet.id_user = User.id_user WHERE username = "andreiaa"', (err, rows) => {
+            if (err) throw err
+            callback(rows)
+        })
+    }
 }
 
 module.exports = Message

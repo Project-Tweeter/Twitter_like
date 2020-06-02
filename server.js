@@ -67,7 +67,6 @@ app.get('/signup', (request,response) => {
 })
 
 app.post('/signup', (request,response)=>{
-  
     let User = require('./models/user')
     User.create(
         request.body.nom,
@@ -113,11 +112,15 @@ app.post('/home/:username', (request,response)=>{
 // FIN
 
 app.get('/profil/:username', (request,response) => {
-  console.log(request.params)
-  response.render('profil', {
-    title:"Profil",
-    style: "profil.css"
-})
+    let Message = require('./models/message')
+    Message.allUser(function(messages){
+        console.log(messages)
+        response.render('profil', {
+            title:"Profil",
+            style: "profil.css",
+            message: messages,
+            username : messages.username})
+    })
 })
 
 app.get("*", (request, response) => {

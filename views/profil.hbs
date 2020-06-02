@@ -2,11 +2,17 @@
 
 <section id="login_left">
     <img class="login-img" src="/assets/images/twitter.svg" alt="">
+    <div class="login_left-container">
+        <a class="login_left-link_home" href="/home/:"> <img class="login-img" src="/assets/images/home.svg" alt=""> Accueil</a>
+    </div>
+    <div class="login_left-container">
+        <a class="login_left-link_profil" href="/profil/:"> <img class="login-img" src="/assets/images/user.svg" alt=""> Profil</a>
+    </div>
 </section>
 
 <section id="login_center">
     <div class="login_container1">
-        <h1 class="login_container1-title">Andreia</h1>
+        <h1 class="login_container1-title">Andreiaa</h1>
     </div>
     <div class="login_container2">
         <form action="/home" method="post" class="login-form">
@@ -29,7 +35,7 @@
             </div>
             <div class="login_container4-content">
                 <div class="name"> 
-                    <h1>Andreia</h1>
+                    <h1>{{username}}</h1>
                     {{moment created_at "fromNow"}}
                 </div>
                 <div class="content">

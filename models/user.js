@@ -31,15 +31,6 @@ class User {
           });
 }
 
-
-//  static hashingPassword(password) {
-//   var bcrypt = require('bcryptjs')
-//   var salt = bcrypt.genSaltSync(12)
-//   var hash = bcrypt.hashSync(password, salt)
-
-//   return hash
-// }
-
 }
 
 module.exports= User;
