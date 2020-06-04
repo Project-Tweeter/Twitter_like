@@ -15,22 +15,13 @@
 
 <section id="login_center">
     <div class="login_container1">
-        <h1 class="login_container1-title">{{username}}</h1>
+        <a href="/profil/{{me}}"><img src="/assets/images/back.svg" height="20px"alt=""></a>
+        <h1 class="login_container1-title">Tweeter</h1>
     </div>
-    <div class="login_container2">
-       <div class="login_container2_background">
-           <img src="{{link}}" alt="">
-       </div>
-       <div class="login_container2_content-user">
-           <h2>{{username}}</h2>
-           <p>A rejoint Twitter en Mai 2020</p>
-           <div class="content-user_paragraph"><p>15 abonnements</p><p>9 abonnés</p></div>
-       </div>
-    </div>
+    
     <div class="login_container3"></div>
     {{#each message}} 
-    <a href="/tweet/{{username}}/{{Id_tweet}}">
-        <div class="login_container4">
+    <div class="login_container4">
         <div class="login_container4-tweet">
             <div class="login_container4-img">
                 <img src="{{link}}">
@@ -47,7 +38,6 @@
         </div>
         </div>
     </div>
-    </a>
     {{/each}} 
     
 

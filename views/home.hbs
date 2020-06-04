@@ -3,10 +3,13 @@
 <section id="login_left">
     <img class="login-img" src="/assets/images/twitter.svg" alt="">
     <div class="login_left-container">
-        <a class="login_left-link_home" href="/home/:"> <img class="login-img" src="/assets/images/home.svg" alt=""> Accueil</a>
+        <a class="login_left-link_home" href="/home/{{username}}"> <img class="login-img" src="/assets/images/home.svg" alt=""> Accueil</a>
     </div>
     <div class="login_left-container">
-        <a class="login_left-link_profil" href="/profil/:"> <img class="login-img" src="/assets/images/user.svg" alt=""> Profil</a>
+        <a class="login_left-link_profil" href="/profil/{{username}}"> <img class="login-img" src="/assets/images/user.svg" alt=""> Profil</a>
+    </div>
+    <div class="login_left-container">
+        <a class="login_left-link_profil" href="/logout"> <img class="login-img" src="/assets/images/criss-cross.svg" alt="">Logout</a>
     </div>
 </section>
 
@@ -18,7 +21,7 @@
         <form action="/home/:username" method="post" class="login-form">
             <div class="login-form_tweet">
                 <label class="login-form_label">
-                    <textarea id="message" name="message" cols="50"  maxlength="140" placeholder="Quoi de neuf ?">
+                    <textarea id="message" name="message" placeholder="Quoi de neuf ?" cols="50"  maxlength="140">
                     </textarea>
                 </label>
             </div>
@@ -31,15 +34,15 @@
     <div class="login_container4">
         <div class="login_container4-tweet">
             <div class="login_container4-img">
-                <img src="https://randomuser.me/api/portraits/lego/1.jpg">
+                <a href="/profil/{{username}}"><img src="{{link}}"></a>
             </div>
             <div class="login_container4-content">
                 <div class="name"> 
-                    <h1>{{username}}</h1>
+                   <a href="/profil/{{username}}">{{username}}</a>
                     {{moment created_at "fromNow"}}
                 </div>
                 <div class="content">
-                {{ content }}
+               <p>{{ content }}</p>
                 </div>
             </div>
         </div>
@@ -50,6 +53,23 @@
 
 </section>
 
-<section id="login_right"></section>
+<section id="login_right">
+    <h1>suggestions</h1>
+    {{!-- {{#each user}} --}}
+    <div class="login_right-container">
+        <div class="login_right-container">
+            <a href=""><img src="" alt=""></a>
+        </div>
+        <div>
+            <a href="">User</a>
+        </div>
+        <div>
+            <form action="/home/:username" method="post">
+                <button type="submit "class="login-button">Follow</button>
+            </form>
+        </div>
+    </div>
+    {{!-- {{#each user}} --}}
+</section>
 
 </main>

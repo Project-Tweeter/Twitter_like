@@ -1,6 +1,9 @@
 <section id="connection">
     <img class="connection-img" src="../assets/images/twitter.svg" alt="">
     <h1 class="connection-title">Se connecter à Twitter</h1>
+    {{#if error}}
+    <h1 class="connection-error_message">{{error}}</h1>
+    {{/if }}
     <form action="/" method="post" class="connection-form">
         <div class="connection-form_email">
             <label class="connection-form_label">

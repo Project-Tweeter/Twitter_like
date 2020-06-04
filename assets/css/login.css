@@ -24,6 +24,13 @@ h1 {
     color: #14171A;
 }
 
+.connection-error_message{
+    color: red;
+    font-size: 0.9em;
+    padding-bottom: 2%;
+    font-weight: 500;
+}
+
 .connection-img {
     padding-top: 1.5%;
     width: 3vw;

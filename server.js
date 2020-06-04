@@ -3,29 +3,38 @@ const app = express();
 const expbs = require('express-handlebars')
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const flash = require('connect-flash');
 const isAuth = require('./middlewares/isAuth');
 
+
+// lancement d'express Handlebars, moteur de template, avec un engine et un set
+// le engine va permettre de precider le layout par default et le nom des fichiers
+// de base, les fichiers s'écrivent en '.handlebars" et là j'ai fait en sorte de juste mettre '.hbs"
 app.engine('.hbs', expbs({
     defaultLayout: "main",
     extname: ".hbs"
 }));
 app.set('view engine', 'hbs');
+// app.use(cookieParser());
 app.use("/:username/assets", express.static("assets"));
+app.use("/:username/:id/assets", express.static("assets"));
 app.use("/assets", express.static("assets"));
 
 
-// body parser
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-//
-// express-session
-app.use(session({
-    secret: 'tutu',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false }
-  }))
+//lancement du body parser pour recupèrer et gérer les requêtes des formulaires
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+//lancement de connect-flash pour les messages d'erreur à l'authentification
+app.use(flash());
 
+//lancement d'express session, avec le cookie, le temps de durée de la session en milliseconds
+app.use(session({ 
+    secret: 'secretjfhjgjhg', 
+    cookie: { maxAge: 600000 }, 
+    resave: true, 
+    saveUninitialized: true}))
+
+//lancement d'Handlebars et de moment Handlebars, pour afficher la date en direct
 const Handlebars = require("handlebars");
 const MomentHandler = require("handlebars.moment");
 MomentHandler.registerHelpers(Handlebars);
@@ -35,30 +44,34 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-// LE GET ET POST DU LOGIN AVEC LES TWEETS 
+
+app.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+  });
+  
+// LE GET ET POST DU LOGIN AVEC LES TWEETS ---------------------------------------------------
 app.get('/', (request,response) => {
     response.render('login', {
         title:"Login",
         style: "login.css",
+        error: request.flash('error')
     })
 })
 
-// app.post('/', passport.authenticate('local', { 
-//     successRedirect: '/home',
-//     failureRedirect: '/' }));
-
 app.post(
     "/",
-    passport.authenticate("local", { failureRedirect: "/" }),
+    passport.authenticate("local", {    
+    failureRedirect: "/",
+    failureFlash: "Username ou password faux, recommencez !"}),
     function (req, res) {
-        console.log(req.user);
+        // console.log(req.user);
         res.redirect('/home/' + req.user.username);
     }
 );
-// res.redirect('/home/' + req.user.username);
 // FIN
 
-// LE GET ET POST DU SIGNUP AVEC LES TWEETS 
+// LE GET ET POST DU SIGNUP AVEC LES TWEETS ---------------------------------------------
 app.get('/signup', (request,response) => {
     response.render('signup', {
         title:"Connexion",
@@ -80,18 +93,19 @@ app.post('/signup', (request,response)=>{
         response.redirect('/')
     })
 })
-// FIN
+// FIN -------------------------------------------------------------------------------------
 
-// LE GET ET POST DU HOME AVEC LES TWEETS 
+// LE GET ET POST DU HOME AVEC LES TWEETS --------------------------------------------------
 app.use(isAuth)
 app.get('/home/:username',(request,response) => {
     let Message = require('./models/message')
     Message.all(function(messages){
-        console.log(messages)
+        // console.log(messages)
         response.render('home', {
             title:"Accueil",
             style: "home.css",
-            message: messages})
+            message: messages,
+            username : request.user.username})
     })
 })
 
@@ -103,28 +117,59 @@ app.post('/home/:username', (request,response)=>{
    }
    else {
         let Message = require('./models/message')
-        console.log(request.user.id_user)
+        // console.log(request.user.id_user)
         Message.create(request.user.id_user, request.body.message, function (){
         response.redirect('/home/' + request.user.username);
     })
    }
 })
-// FIN
+// FIN ------------------------------------------------------------------------------------------
 
+// LE GET DU PROFIL AVEC LES TWEETS -------------------------------------------------------
 app.get('/profil/:username', (request,response) => {
     let Message = require('./models/message')
-    Message.allUser(function(messages){
-        console.log(messages)
-        response.render('profil', {
-            title:"Profil",
-            style: "profil.css",
-            message: messages,
-            username : messages.username})
-    })
+    let User = require('./models/user')
+    let username = request.params.username
+    // console.log(username)
+    User.findUser(username, function(err, user){
+        // console.log(user)
+        Message.allUser(username,function(messages){
+            response.render('profil', {
+                title:"Profil",
+                me : request.user.username,
+                style: "profil.css",
+                message: messages,
+                username : username,
+                link: user[0].link,
+                id : messages.Id_tweet})
+        })
+    } )
 })
+// FIN -----------------------------------------------------------------------------------
+
+// LE GET DU TWEET SEUL ------------------------------------------------------------------
+app.get('/tweet/:username/:id', (request,response) => {
+    let Message = require('./models/message')
+    let username = request.params.username
+    let id_tweet = request.params.id
+    console.log(id_tweet)
+        Message.tweetUser(id_tweet,function(messages){
+            console.log(messages)
+            response.render('tweet', {
+                title:"Tweet",
+                style: "tweet.css",
+                message: messages,
+                me : username})
+        })
+})
+// FIN -----------------------------------------------------------------------------------
+
+// 404 -----------------------------------------------------------------------------------
 
 app.get("*", (request, response) => {
-    response.status(404).render("404");
+    response.status(404).render("404", {
+        style: "404.css"
+    });
   });
 
 app.listen(4000);

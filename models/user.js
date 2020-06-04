@@ -3,11 +3,6 @@ let connection = require('../config/db');
 
 class User {
 
-    constructor(user){
-            this.username = user.username
-            this.password = user.password
-        }
-
         static hashingPassword(password){
           let bcrypt = require('bcryptjs');
           let salt = bcrypt.genSaltSync(12);

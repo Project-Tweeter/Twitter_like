@@ -41,37 +41,44 @@ h1 {
 
 .login_container2{
     display: flex;
-    padding: 2% 2%;
+    flex-direction: column;
 }
 
-.login-form .login-form_label #message{
-	background: none;
-	border: none;
-    width:100%;
-    resize: none;
+.login_container2_background{
+    background: url(/assets/images/31056991-29406133.jpg) no-repeat center/ cover;
+    padding: 0 0 20% 0;
+    width: 100%;
+    position: relative;
 }
-
-#message::placeholder{
-    color: rgb(99, 98, 98);
-}
-
-.login-button {
-    text-decoration:none;	
-	background-color:#8DCFF8;
-	border:none;
-    border-radius:100px;
+.login_container2_background img {
+    position: absolute;
+    bottom: -40%;
+    border-radius: 100%;
     width: 15%;
-    padding: 1.8% 0;
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-    font-size: 0.9em;
-    margin-left: 95%;
-    transition: 0.5s;
+    border: white solid 5px;
+    margin-left: 2%;
 }
 
-.login-button:hover {	
-	background-color:#1A91DA;
+.login_container2_content-user{
+padding-top: 10%;
+padding-left: 2%;
+padding-bottom: 2%;
+}
+
+.login_container2_content-user h2{
+    font-size: 1.2em;
+}
+    
+.login_container2_content-user p{
+   color: rgb(145, 145, 145);
+   font-size: 0.9em;
+ }
+
+.login_container2_content-user .content-user_paragraph{
+display: flex;
+}
+.login_container2_content-user .content-user_paragraph p:last-child{
+   padding-left: 2%;
 }
 
 .login_container3 {
@@ -80,7 +87,7 @@ h1 {
 }
 
 
-/* login right img twitter*/
+/* login left img twitter*/
 .login-img {
     width: 2.2vw;
     padding: 3% 10%;
@@ -109,7 +116,7 @@ h1 {
 .login_left-link_profil .login-img{
   padding-right: 12%;
 }
-/* login right img twitter*/
+/* login left img twitter*/
 
 
 
@@ -132,6 +139,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 2%;
 }
 .login_container4-img img{
     border-radius: 100%;
@@ -150,6 +158,7 @@ h1 {
     align-items: flex-end;
     font-size: 0.9em;
     color: rgb(145, 145, 145);
+    font-weight: 500;
 }
 .name h1{
     font-size: 1em;
@@ -158,5 +167,8 @@ h1 {
 }
 
 .content{
-   padding-top: 1%;
-}
+    padding-top: 1%;
+    width: 95%;
+    overflow-wrap: break-word;
+    font-weight: 500;
+ }

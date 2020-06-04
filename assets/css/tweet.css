@@ -17,69 +17,34 @@ h1 {
 
 #home_main {
     display: flex;
-    height: 30%;
 }
 
 #login_center, #login_left, #login_right {
     display: flex;
     flex-direction: column;
     border: 0.5px solid rgb(215, 221, 224) ;
+    flex: 1;
  }
  #login_center {
-    width: 50%;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    flex: 2;
  }
 
- #login_left,
- #login_right {
-    width: 25%;
- }
- 
  .login_container1 {
      padding: 2% 0;
      border-bottom: 0.5px solid rgb(215, 221, 224) ;
+     display: flex;
+     align-items: center;
  }
+
+ .login_container1 a{
+    padding-left: 2%;
+}
 
  .login_container1-title{
      font-size: 1.1em;
      padding-left: 2%;
  }
 
-.login_container2{
-    display: flex;
-    padding: 2% 2%;
-}
-
-.login-form .login-form_label #message{
-	background: none;
-	border: none;
-    width:100%;
-    resize: none;
-}
-
-#message::placeholder{
-    color: rgb(99, 98, 98);
-}
-
-.login-button {
-    text-decoration:none;	
-	background-color:#8DCFF8;
-	border:none;
-    border-radius:100px;
-    width: 15%;
-    padding: 1.8% 0;
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-    font-size: 0.9em;
-    margin-left: 95%;
-    transition: 0.5s;
-}
-
-.login-button:hover {	
-	background-color:#1A91DA;
-}
 
 .login_container3 {
     padding-bottom: 2%;
@@ -143,7 +108,7 @@ h1 {
 }
 .login_container4-img img{
     border-radius: 100%;
-    width: 5vw;
+    width: 100%;
 }
 
 .login_container4-content{
@@ -159,15 +124,14 @@ h1 {
     font-size: 0.9em;
     color: rgb(145, 145, 145);
 }
-.name a{
-    color: rgb(145, 145, 145);
+.name h1{
     font-size: 1em;
     padding-top: 1%;
-    padding-right: 1%;
+    padding-right: 2%;
 }
 
 .content{
-   padding-top: 1%;
-   width: 95%;
-   overflow-wrap: break-word;
-}
+    padding-top: 1%;
+    width: 95%;
+    overflow-wrap: break-word;
+ }
