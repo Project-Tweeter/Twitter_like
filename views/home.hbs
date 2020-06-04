@@ -54,19 +54,21 @@
 </section>
 
 <section id="login_right">
-    <h1>suggestions</h1>
-    {{!-- {{#each user}} --}}
-    <div class="login_right-container">
-        <div class="login_right-container">
-            <a href=""><img src="" alt=""></a>
-        </div>
-        <div>
-            <a href="">User</a>
-        </div>
-        <div>
-            <form action="/home/:username" method="post">
-                <button type="submit "class="login-button">Follow</button>
-            </form>
+    <div class="login_right-suggestion">
+        <h1 class="login_right-suggestion_title">suggestions</h1>
+        {{!-- {{#each user}} --}}
+        <div class="login_right-suggestion_user">
+            <div class="login_right-suggestion_user-image">
+                <a href="/profil/{{username}}"><img src="https://randomuser.me/api/portraits/lego/4.jpg" alt=""></a>
+            </div>
+            <div class="login_right-suggestion_user-username">
+                <a href="/profil/{{username}}">{{username}}</a>
+            </div>
+            <div class="login_right-suggestion_user-button">
+                <form action="/home/:username" method="post">
+                    <button type="submit "class="login-button">Suivre</button>
+                </form>
+            </div>
         </div>
     </div>
     {{!-- {{#each user}} --}}

@@ -36,58 +36,7 @@ h1 {
     width: 25%;
  }
  
- .login_container1 {
-     padding: 2% 0;
-     border-bottom: 0.5px solid rgb(215, 221, 224) ;
- }
-
- .login_container1-title{
-     font-size: 1.1em;
-     padding-left: 2%;
- }
-
-.login_container2{
-    display: flex;
-    padding: 2% 2%;
-}
-
-.login-form .login-form_label #message{
-	background: none;
-	border: none;
-    width:100%;
-    resize: none;
-}
-
-#message::placeholder{
-    color: rgb(99, 98, 98);
-}
-
-.login-button {
-    text-decoration:none;	
-	background-color:#8DCFF8;
-	border:none;
-    border-radius:100px;
-    width: 15%;
-    padding: 1.8% 0;
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-    font-size: 0.9em;
-    margin-left: 95%;
-    transition: 0.5s;
-}
-
-.login-button:hover {	
-	background-color:#1A91DA;
-}
-
-.login_container3 {
-    padding-bottom: 2%;
-    background-color: #E6ECF0;
-}
-
-
-/* login left img twitter*/
+/* -------------------------------login LEFT ----------------------------------------*/
 .login-img {
     width: 2.2vw;
     padding: 3% 10%;
@@ -116,58 +65,194 @@ h1 {
 .login_left-link_profil .login-img{
   padding-right: 12%;
 }
-/* login left img twitter*/
+/* -------------------------------login LEFT ----------------------------------------*/
 
 
 
-.login_container4{
+/* -------------------------------login CENTER----------------------------------------*/
+#login_center .login_container1 {
+     padding: 2% 0;
+     border-bottom: 0.5px solid rgb(215, 221, 224) ;
+ }
+
+#login_center .login_container1-title{
+     font-size: 1.1em;
+     padding-left: 2%;
+ }
+
+#login_center .login_container2{
+    display: flex;
+    padding: 2% 2%;
+}
+
+#login_center .login-form .login-form_label #message{
+	background: none;
+	border: none;
+    width:100%;
+    resize: none;
+}
+
+#message::placeholder{
+    color: rgb(99, 98, 98);
+}
+
+#login_center .login-button {
+    text-decoration:none;	
+	background-color:#8DCFF8;
+	border:none;
+    border-radius:100px;
+    width: 15%;
+    padding: 1.8% 0;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-left: 95%;
+    transition: 0.5s;
+}
+
+#login_center .login-button:hover {	
+	background-color:#1A91DA;
+}
+
+#login_center .login_container3 {
+    padding-bottom: 2%;
+    background-color: #E6ECF0;
+}
+
+#login_center .login_container4{
     border-bottom: solid rgb(215, 221, 224) 0.5px;
     padding: 2% 0;
     transition: 0.5s;
 }
 
-.login_container4:hover{
+#login_center .login_container4:hover{
     background-color: #F5F8FA;
 }
 
-.login_container4-tweet{
+#login_center .login_container4-tweet{
     display: flex;
 }
 
-.login_container4-img{
+#login_center .login_container4-img{
     width: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 2%;
 }
-.login_container4-img img{
+
+#login_center .login_container4-img img{
     border-radius: 100%;
     width: 5vw;
 }
 
-.login_container4-content{
+#login_center .login_container4-content{
     width: 90%;
     padding-left: 2%;
     display: flex;
     flex-direction: column;
 }
 
-.name {
+#login_center .name {
     display: flex;
     align-items: flex-end;
     font-size: 0.9em;
     color: rgb(145, 145, 145);
 }
-.name a{
+
+#login_center .name a{
     color: rgb(145, 145, 145);
     font-size: 1em;
     padding-top: 1%;
     padding-right: 1%;
+    transition: 0.5s;
 }
 
-.content{
+#login_center .name a:hover{
+   text-decoration: underline;
+}
+
+#login_center .content{
    padding-top: 1%;
    width: 95%;
    overflow-wrap: break-word;
 }
+/* -------------------------------login CENTER----------------------------------------*/
+
+
+/* -------------------------------login RIGHT----------------------------------------*/
+#login_right {
+    padding-top: 1%;
+}
+
+#login_right .login_right-suggestion{
+   background-color: #F5F8FA;
+   border-radius: 3%;
+}
+
+#login_right .login_right-suggestion_title{
+    font-size: 1.1em;
+    padding-left: 2%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+#login_right .login_right-suggestion_user {
+    display: flex;
+    align-items: center;
+    padding: 2% 0;
+    border-top: solid rgb(215, 221, 224) 0.5px;
+    transition: 0.5s;
+}
+#login_right .login_right-suggestion_user:hover {
+    background-color: rgba(209, 217, 223, 0.363);
+}
+
+#login_right .login_right-suggestion_user-image {
+    padding-left: 2%;
+}
+
+#login_right .login_right-suggestion_user-image img{
+    border-radius: 100%;
+    width: 5vw;
+}
+
+#login_right .login_right-suggestion_user-username{
+    padding-left: 3%;
+}
+
+#login_right .login_right-suggestion_user-username a{
+    transition: 0.5s;
+}
+  
+#login_right .login_right-suggestion_user-username a:hover{
+  text-decoration: underline;
+}
+
+#login_right .login_right-suggestion_user-button {
+    padding-left: 35%;
+}
+
+#login_right .login_right-suggestion_user-button form {
+    padding: 3%;
+}
+
+#login_right .login_right-suggestion_user-button .login-button {	
+	background-color:#8DCFF8;
+	border:none;
+    border-radius:100px;
+    width: 6vw;
+    padding: 10%;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: 0.5s;
+}
+
+#login_right .login_right-suggestion_user-button .login-button:hover {	
+	background-color:#1A91DA;
+}
+
+/* -------------------------------login RIGHT---------------------------------------*/

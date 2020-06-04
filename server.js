@@ -31,8 +31,8 @@ app.use(flash());
 app.use(session({ 
     secret: 'secretjfhjgjhg', 
     cookie: { maxAge: 600000 }, 
-    resave: true, 
-    saveUninitialized: true}))
+    resave: false, 
+    saveUninitialized: false}))
 
 //lancement d'Handlebars et de moment Handlebars, pour afficher la date en direct
 const Handlebars = require("handlebars");
@@ -49,7 +49,7 @@ app.get('/logout', function(req, res){
     req.logout();
     res.redirect('/');
   });
-  
+
 // LE GET ET POST DU LOGIN AVEC LES TWEETS ---------------------------------------------------
 app.get('/', (request,response) => {
     response.render('login', {
@@ -105,7 +105,8 @@ app.get('/home/:username',(request,response) => {
             title:"Accueil",
             style: "home.css",
             message: messages,
-            username : request.user.username})
+            username : request.user.username
+        })
     })
 })
 
