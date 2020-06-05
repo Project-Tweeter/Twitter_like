@@ -1,0 +1,20 @@
+<section id="suggestions_right">
+    <div class="suggestions_right-suggestion">
+        <h1 class="suggestions_right-suggestion_title">Suggestions</h1>
+        {{#each user}}
+        <div class="suggestions_right-suggestion_user">
+            <div class="suggestions_right-suggestion_user-image">
+                <a href="/profil/{{username}}"><img src="{{link}}" alt=""></a>
+            </div>
+            <div class="suggestions_right-suggestion_user-username">
+                <a href="/profil/{{username}}">{{username}}</a>
+            </div>
+            <div class="suggestions_right-suggestion_user-button">
+                <form action="/home/follow/{{id_user}}" method="post">
+                    <button type="submit "class="suggestions-button">Suivre</button>
+                </form>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>

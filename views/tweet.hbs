@@ -1,37 +1,26 @@
-<main id="home_main">
+<main id="tweet_main">
 
-<section id="login_left">
-    <img class="login-img" src="/assets/images/twitter.svg" alt="">
-    <div class="login_left-container">
-        <a class="login_left-link_home" href="/home/{{me}}"> <img class="login-img" src="/assets/images/home.svg" alt=""> Accueil</a>
-    </div>
-    <div class="login_left-container">
-        <a class="login_left-link_profil" href="/profil/{{me}}"> <img class="login-img" src="/assets/images/user.svg" alt=""> Profil</a>
-    </div>
-    <div class="login_left-container">
-        <a class="login_left-link_profil" href="/logout"> <img class="login-img" src="/assets/images/criss-cross.svg" alt="">Logout</a>
-    </div>
-</section>
+{{> menu}}
 
-<section id="login_center">
-    <div class="login_container1">
+<section id="tweet_center">
+    <div class="tweet_container1">
         <a href="/profil/{{me}}"><img src="/assets/images/back.svg" height="20px"alt=""></a>
-        <h1 class="login_container1-title">Tweeter</h1>
+        <h1 class="tweet_container1-title">Tweeter</h1>
     </div>
     
-    <div class="login_container3"></div>
+    <div class="tweet_container3"></div>
     {{#each message}} 
-    <div class="login_container4">
-        <div class="login_container4-tweet">
-            <div class="login_container4-img">
+    <div class="tweet_container4">
+        <div class="tweet_container4-tweet">
+            <div class="tweet_container4-img">
                 <img src="{{link}}">
             </div>
-            <div class="login_container4-content">
-                <div class="name"> 
+            <div class="tweet_container4-content">
+                <div class="tweet_container4-content_username"> 
                     <h1>{{username}}</h1>
                     {{moment created_at "fromNow"}}
                 </div>
-                <div class="content">
+                <div class="tweet_container4-content_string">
                 {{ content }}
                 </div>
             </div>
@@ -43,6 +32,6 @@
 
 </section>
 
-<section id="login_right"></section>
+{{> suggestions}}
 
 </main>

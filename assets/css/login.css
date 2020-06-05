@@ -96,5 +96,10 @@ h1 {
 .connection-container .connection-container_link {
     color: #1DA1F2;
     font-size: 0.9em;
+    font-weight: 500;
+    transition: text-decoration 0.5s;
 }
 
+.connection-container .connection-container_link:hover {
+    text-decoration: underline;
+}

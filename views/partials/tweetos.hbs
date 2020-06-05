@@ -1,0 +1,18 @@
+
+        <div class="tweetos_container">
+        <div class="tweetos_container-tweet">
+            <div class="tweetos_container-img">
+                <a href="/profil/{{username}}"><img src="{{link}}"></a>
+            </div>
+            <div class="tweetos_container-content">
+                <div class="tweetos_container-tweet_content_name"> 
+                    <a href="/profil/{{username}}"><h1>{{username}}</h1></a>
+                    {{moment created_at "fromNow"}}
+                </div>
+                <div class="tweetos_container-tweet_content_string">
+                {{ content }}
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>

@@ -1,136 +1,90 @@
-*{
-    padding: 0;
-    margin: 0;
-    font-family: Helvetica, sans-serif;
-    outline :  none;
-}
 
-a{
-    font-weight: bold;
-    text-decoration: none;
-    color: black;
-}
-
-h1 {
-    font-size: 1.3em;
-}
-
-#home_main {
+#tweet_main {
     display: flex;
 }
 
-#login_center, #login_left, #login_right {
+#tweet_center {
+    width: 52%;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     border: 0.5px solid rgb(215, 221, 224) ;
-    flex: 1;
- }
- #login_center {
-    flex: 2;
  }
 
- .login_container1 {
+ .tweet_container1 {
      padding: 2% 0;
      border-bottom: 0.5px solid rgb(215, 221, 224) ;
      display: flex;
      align-items: center;
  }
 
- .login_container1 a{
+ .tweet_container1 a{
     padding-left: 2%;
 }
 
- .login_container1-title{
+ .tweet_container1-title{
      font-size: 1.1em;
      padding-left: 2%;
  }
 
 
-.login_container3 {
+.tweet_container3 {
     padding-bottom: 2%;
     background-color: #E6ECF0;
 }
 
 
-/* login left img twitter*/
-.login-img {
-    width: 2.2vw;
-    padding: 3% 10%;
-}
-
-.login_left-container{
-    border-radius:100px;
-    width: 40%;
-    margin-left: 5%;
-    margin-top: 5%;
-    padding: 2% 2%;
-    transition: 0.5s;
-}
-
-.login_left-container:hover{
-   background-color: #E8F5FE;
-}
-
-.login_left-link_home,
-.login_left-link_profil{
-    display: flex;
-    align-items: center;
-}
-
-.login_left-link_home .login-img,
-.login_left-link_profil .login-img{
-  padding-right: 12%;
-}
-/* login left img twitter*/
 
 
 
-.login_container4{
+.tweet_container4{
     border-bottom: solid rgb(215, 221, 224) 0.5px;
     padding: 2% 0;
     transition: 0.5s;
 }
 
-.login_container4:hover{
+.tweet_container4:hover{
     background-color: #F5F8FA;
 }
 
-.login_container4-tweet{
+.tweet_container4-tweet{
     display: flex;
 }
 
-.login_container4-img{
+.tweet_container4-img{
     width: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 2%;
 }
-.login_container4-img img{
+.tweet_container4-img img{
     border-radius: 100%;
     width: 100%;
 }
 
-.login_container4-content{
+.tweet_container4-content{
     width: 90%;
     padding-left: 2%;
     display: flex;
     flex-direction: column;
 }
 
-.name {
+.tweet_container4-content_username {
     display: flex;
     align-items: flex-end;
     font-size: 0.9em;
     color: rgb(145, 145, 145);
 }
-.name h1{
+.tweet_container4-content_username h1{
     font-size: 1em;
     padding-top: 1%;
     padding-right: 2%;
 }
 
-.content{
+.tweet_container4-content_string{
     padding-top: 1%;
     width: 95%;
     overflow-wrap: break-word;

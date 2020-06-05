@@ -9,7 +9,7 @@ const isAuth = require('./middlewares/isAuth');
 
 // lancement d'express Handlebars, moteur de template, avec un engine et un set
 // le engine va permettre de precider le layout par default et le nom des fichiers
-// de base, les fichiers s'écrivent en '.handlebars" et là j'ai fait en sorte de juste mettre '.hbs"
+// de base, les fichiers se terminent par '.handlebars" et là j'ai fait en sorte de juste mettre '.hbs"
 app.engine('.hbs', expbs({
     defaultLayout: "main",
     extname: ".hbs"
@@ -97,18 +97,26 @@ app.post('/signup', (request,response)=>{
 
 // LE GET ET POST DU HOME AVEC LES TWEETS --------------------------------------------------
 app.use(isAuth)
+
 app.get('/home/:username',(request,response) => {
     let Message = require('./models/message')
+    let User = require('./models/user')
+    let currentUser = request.params.username
+    User.allUser(currentUser, function(err, users){
     Message.all(function(messages){
         // console.log(messages)
         response.render('home', {
-            title:"Accueil",
+            title:"Home",
             style: "home.css",
+            me : request.user.username,
             message: messages,
+            user : users,
             username : request.user.username
         })
     })
+    })
 })
+
 
 app.post('/home/:username', (request,response)=>{
     // si le contenu du message est vide alors on lance une session error 
@@ -123,6 +131,15 @@ app.post('/home/:username', (request,response)=>{
         response.redirect('/home/' + request.user.username);
     })
    }
+
+})
+
+app.post('/home/follow/:user_id', (request,response)=>{
+   let Follow = require('./models/follow')
+   let idTarget = request.params.user_id;
+   Follow.create(request.user.id_user, idTarget  , function (){
+    response.redirect('/home/' + request.user.username);
+})
 })
 // FIN ------------------------------------------------------------------------------------------
 
@@ -131,7 +148,7 @@ app.get('/profil/:username', (request,response) => {
     let Message = require('./models/message')
     let User = require('./models/user')
     let username = request.params.username
-    // console.log(username)
+    User.allUser(username, function(err, users){
     User.findUser(username, function(err, user){
         // console.log(user)
         Message.allUser(username,function(messages){
@@ -142,26 +159,31 @@ app.get('/profil/:username', (request,response) => {
                 message: messages,
                 username : username,
                 link: user[0].link,
-                id : messages.Id_tweet})
+                id : messages.Id_tweet,
+                user : users})
         })
     } )
+})
 })
 // FIN -----------------------------------------------------------------------------------
 
 // LE GET DU TWEET SEUL ------------------------------------------------------------------
 app.get('/tweet/:username/:id', (request,response) => {
     let Message = require('./models/message')
+    let User = require('./models/user')
     let username = request.params.username
     let id_tweet = request.params.id
-    console.log(id_tweet)
+    User.allUser(username, function(err, users){
         Message.tweetUser(id_tweet,function(messages){
             console.log(messages)
             response.render('tweet', {
                 title:"Tweet",
                 style: "tweet.css",
                 message: messages,
-                me : username})
+                me : username,
+                user : users})
         })
+    })
 })
 // FIN -----------------------------------------------------------------------------------
 

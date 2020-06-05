@@ -1,58 +1,32 @@
-<main id="home_main">
+<main id="profil_main">
 
-<section id="login_left">
-    <img class="login-img" src="/assets/images/twitter.svg" alt="">
-    <div class="login_left-container">
-        <a class="login_left-link_home" href="/home/{{me}}"> <img class="login-img" src="/assets/images/home.svg" alt=""> Accueil</a>
-    </div>
-    <div class="login_left-container">
-        <a class="login_left-link_profil" href="/profil/{{me}}"> <img class="login-img" src="/assets/images/user.svg" alt=""> Profil</a>
-    </div>
-    <div class="login_left-container">
-        <a class="login_left-link_profil" href="/logout"> <img class="login-img" src="/assets/images/criss-cross.svg" alt="">Logout</a>
-    </div>
-</section>
 
-<section id="login_center">
-    <div class="login_container1">
-        <h1 class="login_container1-title">{{username}}</h1>
+{{> menu}}
+
+<section id="profil_center">
+    <div class="profil_container1">
+        <h1 class="profil_container1-title">{{username}}</h1>
     </div>
-    <div class="login_container2">
-       <div class="login_container2_background">
+    <div class="profil_container2">
+       <div class="profil_container2_background">
            <img src="{{link}}" alt="">
        </div>
-       <div class="login_container2_content-user">
+       <div class="profil_container2_content-user">
            <h2>{{username}}</h2>
            <p>A rejoint Twitter en Mai 2020</p>
            <div class="content-user_paragraph"><p>15 abonnements</p><p>9 abonnés</p></div>
        </div>
     </div>
-    <div class="login_container3"></div>
+    <div class="profil_container3"></div>
     {{#each message}} 
+
     <a href="/tweet/{{username}}/{{Id_tweet}}">
-        <div class="login_container4">
-        <div class="login_container4-tweet">
-            <div class="login_container4-img">
-                <img src="{{link}}">
-            </div>
-            <div class="login_container4-content">
-                <div class="name"> 
-                    <h1>{{username}}</h1>
-                    {{moment created_at "fromNow"}}
-                </div>
-                <div class="content">
-                {{ content }}
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
+    {{> tweetos}}
     </a>
     {{/each}} 
     
-
 </section>
-
-<section id="login_right"></section>
+ 
+{{> suggestions}}
 
 </main>

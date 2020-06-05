@@ -24,7 +24,16 @@ class User {
             if (err) throw err
             callback(err, user);
           });
-}
+
+        }
+
+        static allUser(username, callback) {
+          connection.query("SELECT * FROM User WHERE username != ? ", [username], (err, user) =>{
+            if (err) throw err
+            callback(err, user);
+          });
+
+        }
 
 }
 
