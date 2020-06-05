@@ -50,6 +50,15 @@
 .tweetos_container-tweet_content_name a:hover{
     text-decoration: underline;
 }
+
+.tweetos_container-tweet_content_string a{
+    font-weight: 500;
+     transition: color 0.5s;
+ }
+ .tweetos_container-tweet_content_string a:hover{
+     color:rgb(95, 90, 90);
+ } 
+
 .tweetos_container-tweet_content_string{
     padding-top: 1%;
     width: 95%;

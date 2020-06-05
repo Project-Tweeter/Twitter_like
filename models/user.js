@@ -10,9 +10,9 @@ class User {
           return hash
         }
 
-        static create(nom, prenom, email, birthday, password, username, callback){
+        static create(nom, prenom, email, birthday, password, username, link, callback){
             password = this.hashingPassword(password);
-            connection.query('INSERT INTO User SET nom = ?, prenom = ?, email = ?, birthday = ?,  password = ?, username = ?', [nom,prenom,email,birthday,password,username], (err, result) => { 
+            connection.query('INSERT INTO User SET nom = ?, prenom = ?, email = ?, birthday = ?,  password = ?, username = ?, link = ?', [nom,prenom,email,birthday,password,username,link], (err, result) => { 
             if (err) throw err
             callback(result)
             })

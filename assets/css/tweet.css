@@ -13,79 +13,27 @@
     border: 0.5px solid rgb(215, 221, 224) ;
  }
 
- .tweet_container1 {
+ .tweet_container-top {
      padding: 2% 0;
      border-bottom: 0.5px solid rgb(215, 221, 224) ;
      display: flex;
      align-items: center;
  }
 
- .tweet_container1 a{
+ .tweet_container-top a{
     padding-left: 2%;
 }
 
- .tweet_container1-title{
+ .tweet_container-title{
      font-size: 1.1em;
      padding-left: 2%;
  }
 
 
-.tweet_container3 {
+.tweet_container-decoration {
     padding-bottom: 2%;
     background-color: #E6ECF0;
 }
 
 
 
-
-
-.tweet_container4{
-    border-bottom: solid rgb(215, 221, 224) 0.5px;
-    padding: 2% 0;
-    transition: 0.5s;
-}
-
-.tweet_container4:hover{
-    background-color: #F5F8FA;
-}
-
-.tweet_container4-tweet{
-    display: flex;
-}
-
-.tweet_container4-img{
-    width: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 2%;
-}
-.tweet_container4-img img{
-    border-radius: 100%;
-    width: 100%;
-}
-
-.tweet_container4-content{
-    width: 90%;
-    padding-left: 2%;
-    display: flex;
-    flex-direction: column;
-}
-
-.tweet_container4-content_username {
-    display: flex;
-    align-items: flex-end;
-    font-size: 0.9em;
-    color: rgb(145, 145, 145);
-}
-.tweet_container4-content_username h1{
-    font-size: 1em;
-    padding-top: 1%;
-    padding-right: 2%;
-}
-
-.tweet_container4-content_string{
-    padding-top: 1%;
-    width: 95%;
-    overflow-wrap: break-word;
- }
