@@ -24,19 +24,21 @@ exports.getHome = (request, response) => {
 // ici on utilise le controller User pour le PROFIL qui est relié à sa route GET 
 exports.getProfil = (request, response) => {
     let username = request.params.username
-    let toto = request.user.id_user;
-    User.allUser(username, function(err, users){
-    User.findUser(username, function(err, user){
+    let test = request.user.id_user;
+    User.allUser(username, function(error, users){
+    User.findUser(username, function(error, user){
         // console.log(user)
         Message.allUser(username,function(messages){
             response.render('profil', {
                 title:"Profil",
                 me : request.user.username,
-                toto : toto,
+                test: test,
                 style: "profil.css",
                 message: messages,
                 username : username,
                 link: user[0].link,
+                nom: user[0].nom,
+                prenom: user[0].prenom,
                 id : messages.Id_tweet,
                 user : users})
         })
@@ -50,7 +52,7 @@ exports.getTweet = (request, response) => {
 
     let username = request.params.username
     let id_tweet = request.params.id
-    User.allUser(username, function(err, users){
+    User.allUser(username, function(error, users){
         Message.tweetUser(id_tweet,function(messages){
             console.log(messages)
             response.render('tweet', {
@@ -91,17 +93,14 @@ exports.postEdit = (request, response) => {
         request.body.link,
         request.user.id_user,
         function (){
-            response.redirect('/edit/' + request.user.username);
+            response.redirect('/');
     })
 };
 
 
 exports.getEdit = (request, response) => {
     let username = request.params.username
-    let toto = request.user.id_user;
-    User.allUser(username, function(err, users){
-    User.findUser(username, function(err, user){
-        console.log(user[0].nom, 'user')
+    User.findUser(username, function(error, user){
         response.render('edit', {
             title:"Modifier",
             style: "edit.css",
@@ -110,10 +109,9 @@ exports.getEdit = (request, response) => {
             email : user[0].email,
             username : user[0].username,
             link : user[0].link,
-            password : user[0].password,
             me : request.user.username
         })
-    })
+    
     })
     
 };

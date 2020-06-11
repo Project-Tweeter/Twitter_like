@@ -4,7 +4,15 @@
     display: flex;
 }
 
-
+#profil_center {
+    width: 52%;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 0.5px solid rgb(215, 221, 224) ;
+ }
 
 .connection-form .connection-form_label .connection-form_input {
     color: black ;
