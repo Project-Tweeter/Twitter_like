@@ -17,5 +17,11 @@ exports.postHomeTweets = (request, response) => {
     }
 };
 
+exports.deleteTweet = (request, response) => {
+    let tweet_id = request.params.Id_tweet;
+    Message.deleteTweet( tweet_id, function (){
+        response.redirect('/home/' + request.user.username);
+})
 
+};
 // ici on utilise le controller message pour PROFIL 

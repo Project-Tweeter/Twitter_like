@@ -1,4 +1,4 @@
-let connection = require('../config/db')
+const connection = require('../config/db')
 // let moment = require('moment')
 
 class Message {
@@ -32,6 +32,14 @@ class Message {
             callback(row)
         })
     }
+
+    static deleteTweet(  Id_tweet,   callback) {
+        connection.query( 'DELETE FROM Tweet WHERE Id_tweet = ?',[ Id_tweet], (err, row) => {
+            if (err) throw err
+            callback(row)
+        })
+    }
+    
 }
 
 module.exports = Message

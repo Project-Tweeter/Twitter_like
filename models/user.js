@@ -1,12 +1,12 @@
-let connection = require('../config/db');
+const connection = require('../config/db');
+const bcrypt = require('bcryptjs');
 
 
 class User {
 
         static hashingPassword(password){
-          let bcrypt = require('bcryptjs');
-          let salt = bcrypt.genSaltSync(12);
-          let hash = bcrypt.hashSync(password, salt);
+          const salt = bcrypt.genSaltSync(12);
+          const hash = bcrypt.hashSync(password, salt);
           return hash
         }
 

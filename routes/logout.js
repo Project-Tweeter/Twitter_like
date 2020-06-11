@@ -2,9 +2,9 @@ const express = require("express");
 
 const logoutRouter = express.Router();
 
-logoutRouter.get('/logout', function(req, res){
-    req.logout();
-    res.redirect('/');
+logoutRouter.get('/logout', function(request, response){
+    request.logout();
+    response.redirect('/');
 });
 
 

@@ -1,7 +1,7 @@
-module.exports = (req, res, next) => {
-    if (req.isAuthenticated()) { 
+module.exports = (request, response, next) => {
+    if (request.isAuthenticated()) { 
       next();
     } else {
-      res.redirect("/");
+      response.redirect("/");
     }
   };

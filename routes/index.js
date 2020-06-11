@@ -10,7 +10,7 @@ const homeRouter = require("./home");
 const profilRouter = require("./profil");
 const signupRouter = require("./signup");
 const tweetRouter = require("./tweet");
-const lougoutRouter = require("./logout");
+const logoutRouter = require("./logout");
 
 
 
@@ -29,9 +29,9 @@ router.post(
     passport.authenticate("local", {    
     failureRedirect: "/",
     failureFlash: "Username ou password faux, recommencez !"}),
-    function (req, res) {
+    function (request, response) {
         // console.log(req.user);
-        res.redirect('/home/' + req.user.username);
+        response.redirect('/home/' + request.user.username);
     }
 );
 
@@ -40,7 +40,7 @@ router.use(homeRouter);
 router.use(profilRouter);
 router.use(signupRouter);
 router.use(tweetRouter);
-router.use(lougoutRouter);
+router.use(logoutRouter);
 
 
 router.get("*", (request, response) => {

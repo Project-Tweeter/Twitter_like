@@ -1,4 +1,4 @@
-let connection = require('../config/db')
+const connection = require('../config/db')
 // let moment = require('moment')
 
 class Follow {
