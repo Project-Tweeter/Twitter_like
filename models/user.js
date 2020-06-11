@@ -18,6 +18,12 @@ class User {
             })
         }
 
+        static updateUser(nom, prenom, email, username, link, id_user, callback){
+          connection.query('UPDATE User SET nom = ?, prenom = ?, email = ?, username = ?, link = ? WHERE id_user = ?', [nom,prenom,email,username,link, id_user], (err, result) => { 
+          if (err) throw err
+          callback(result)
+          })
+      }
 
         static findUser(username, callback) {
           connection.query("SELECT * FROM User WHERE username = ?", [username], (err, user) =>{

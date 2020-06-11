@@ -24,6 +24,7 @@ exports.getHome = (request, response) => {
 // ici on utilise le controller User pour le PROFIL qui est relié à sa route GET 
 exports.getProfil = (request, response) => {
     let username = request.params.username
+    let toto = request.user.id_user;
     User.allUser(username, function(err, users){
     User.findUser(username, function(err, user){
         // console.log(user)
@@ -31,6 +32,7 @@ exports.getProfil = (request, response) => {
             response.render('profil', {
                 title:"Profil",
                 me : request.user.username,
+                toto : toto,
                 style: "profil.css",
                 message: messages,
                 username : username,
@@ -78,6 +80,43 @@ exports.postSignup = (request, response) => {
     })
 };
 
+
+
+exports.postEdit = (request, response) => {
+    User.updateUser(
+        request.body.nom,
+        request.body.prenom, 
+        request.body.email,
+        request.body.username,
+        request.body.link,
+        request.user.id_user,
+        function (){
+            response.redirect('/edit/' + request.user.username);
+    })
+};
+
+
+exports.getEdit = (request, response) => {
+    let username = request.params.username
+    let toto = request.user.id_user;
+    User.allUser(username, function(err, users){
+    User.findUser(username, function(err, user){
+        console.log(user[0].nom, 'user')
+        response.render('edit', {
+            title:"Modifier",
+            style: "edit.css",
+            nom : user[0].nom,
+            prenom : user[0].prenom,
+            email : user[0].email,
+            username : user[0].username,
+            link : user[0].link,
+            password : user[0].password,
+            me : request.user.username
+        })
+    })
+    })
+    
+};
 
 
 

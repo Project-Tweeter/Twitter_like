@@ -11,6 +11,7 @@ const profilRouter = require("./profil");
 const signupRouter = require("./signup");
 const tweetRouter = require("./tweet");
 const logoutRouter = require("./logout");
+const editRouter = require("./edit");
 
 
 
@@ -41,6 +42,7 @@ router.use(profilRouter);
 router.use(signupRouter);
 router.use(tweetRouter);
 router.use(logoutRouter);
+router.use(editRouter);
 
 
 router.get("*", (request, response) => {
