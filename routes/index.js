@@ -5,7 +5,7 @@ const express = require('express');
 const router = express.Router();
 
 // require des différentes routes du dossier routes
-const passport = require("../passport/local_auth.js")();
+const passport = require("../config/local_auth.js")();
 const homeRouter = require("./home");
 const profilRouter = require("./profil");
 const signupRouter = require("./signup");

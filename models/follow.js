@@ -5,8 +5,8 @@ class Follow {
 
 
     static create(currentUserId, idTarget, callback){
-        connection.query(' SELECT COUNT(id_follower) AS count FROM Follow WHERE id_follower = ? AND id_followed = ?', [currentUserId, idTarget], (err, result) => { 
-            if (err) throw err
+        connection.query(' SELECT COUNT(id_follower) AS count FROM Follow WHERE id_follower = ? AND id_followed = ?', [currentUserId, idTarget], (error, result) => { 
+            if (error) throw error
             if (result[0].count > 0){
                 console.log("vous êtes déjà abonné !")
             } else {

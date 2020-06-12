@@ -5,7 +5,7 @@ const Message = require('../models/message')
 // ici on utilise le controller User pour le HOME qui est relié à sa route GET 
 exports.getHome = (request, response) => {
     let currentUser = request.params.username
-    User.allUser(currentUser, function(err, users){
+    User.findUsersExceptMe(currentUser, function(error, users){
     Message.all(function(messages){
         // console.log(messages)
         response.render('home', {
@@ -25,7 +25,7 @@ exports.getHome = (request, response) => {
 exports.getProfil = (request, response) => {
     let username = request.params.username
     let test = request.user.id_user;
-    User.allUser(username, function(error, users){
+    User.findUsersExceptMe(username, function(error, users){
     User.findUser(username, function(error, user){
         // console.log(user)
         Message.allUser(username,function(messages){
@@ -52,7 +52,7 @@ exports.getTweet = (request, response) => {
 
     let username = request.params.username
     let id_tweet = request.params.id
-    User.allUser(username, function(error, users){
+    User.findUsersExceptMe(username, function(error, users){
         Message.tweetUser(id_tweet,function(messages){
             console.log(messages)
             response.render('tweet', {
@@ -68,7 +68,7 @@ exports.getTweet = (request, response) => {
 
 // ici on utilise le controller User pour le SIGNUP qui est relié à sa route POST
 exports.postSignup = (request, response) => {
-    User.create(
+    User.createUser(
         request.body.nom,
         request.body.prenom, 
         request.body.email,

@@ -39,7 +39,7 @@ const Handlebars = require("handlebars");
 const MomentHandler = require("handlebars.moment");
 MomentHandler.registerHelpers(Handlebars);
 
-const passport = require("./passport/local_auth.js")();
+const passport = require("./config/local_auth.js")();
 app.use(passport.initialize());
 app.use(passport.session());
 
