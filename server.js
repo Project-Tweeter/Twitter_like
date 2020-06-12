@@ -30,9 +30,9 @@ app.use(flash());
 //lancement d'express session, avec le cookie, le temps de durée de la session en milliseconds
 app.use(session({ 
     secret: 'secretjfhjgjhg', 
-    cookie: { maxAge: 600000 }, 
-    resave: false, 
-    saveUninitialized: false}))
+    cookie: { maxAge: 60000000 }, 
+    resave: true, 
+    saveUninitialized: true}))
 
 //lancement d'Handlebars et de moment Handlebars, pour afficher la date en direct
 const Handlebars = require("handlebars");

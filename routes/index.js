@@ -12,8 +12,7 @@ const signupRouter = require("./signup");
 const tweetRouter = require("./tweet");
 const logoutRouter = require("./logout");
 const editRouter = require("./edit");
-
-
+const followRouter = require("./follow");
 
 // On laisse dans l'index les routes à la racine et l'erreur 404
 
@@ -43,7 +42,7 @@ router.use(signupRouter);
 router.use(tweetRouter);
 router.use(logoutRouter);
 router.use(editRouter);
-
+router.use(followRouter);
 
 router.get("*", (request, response) => {
     response.status(404).render("404", {
