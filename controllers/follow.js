@@ -6,7 +6,7 @@ const Follow = require('../models/follow')
 exports.postHomeSuggestions = (request, response) => {
     let idTarget = request.params.user_id;
     // console.log(request.body.id_user)
-    Follow.create(request.user.id_user, idTarget  , function (){
+    Follow.create(request.user.id, idTarget  , function (){
      response.redirect('/home/' + request.user.username);
     })
 };

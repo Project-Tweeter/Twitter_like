@@ -6,7 +6,7 @@ const Message = require('../models/message')
 exports.getHome = (request, response) => {
     let currentUser = request.params.username
     User.findUsersExceptMe(currentUser, function(error, users){
-    Message.all(function(messages){
+    Message.postAllTweets(function(messages){
         // console.log(messages)
         response.render('home', {
             title:"Home",
@@ -24,11 +24,11 @@ exports.getHome = (request, response) => {
 // ici on utilise le controller User pour le PROFIL qui est relié à sa route GET 
 exports.getProfil = (request, response) => {
     let username = request.params.username
-    let test = request.user.id_user;
+    let test = request.user.id;
     User.findUsersExceptMe(username, function(error, users){
     User.findUser(username, function(error, user){
         // console.log(user)
-        Message.allUser(username,function(messages){
+        Message.postAllTweetsCurrentUser(username,function(messages){
             response.render('profil', {
                 title:"Profil",
                 me : request.user.username,
@@ -91,7 +91,7 @@ exports.postEdit = (request, response) => {
         request.body.email,
         request.body.username,
         request.body.link,
-        request.user.id_user,
+        request.user.id,
         function (){
             response.redirect('/');
     })

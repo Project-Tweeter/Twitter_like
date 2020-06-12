@@ -18,8 +18,8 @@ class User {
             })
         }
 
-        static updateUser(nom, prenom, email, username, link, id_user, callback){
-          db.query('UPDATE users SET nom = ?, prenom = ?, email = ?, username = ?, link = ? WHERE id_user = ?', [nom,prenom,email,username,link, id_user], (error, result) => { 
+        static updateUser(nom, prenom, email, username, link, id, callback){
+          db.query('UPDATE users SET nom = ?, prenom = ?, email = ?, username = ?, link = ? WHERE id = ?', [nom,prenom,email,username,link, id], (error, result) => { 
           if (error) throw error
           callback(result)
           })

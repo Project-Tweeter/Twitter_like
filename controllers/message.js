@@ -11,7 +11,7 @@ exports.postTweets = (request, response) => {
     else {
          // let Message = require('../models/message')
          // console.log(request.user.id_user)
-         Message.createTweet(request.user.id_user, request.body.message, function (){
+         Message.createTweet(request.user.id, request.body.message, function (){
          response.redirect('/home/' + request.user.username);
      })
     }
