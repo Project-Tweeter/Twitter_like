@@ -11,6 +11,6 @@ const homeRouter = express.Router();
 homeRouter.get('/home/:username', isAuth , userController.getHome)
 homeRouter.post('/home/:username', isAuth , messageController.postTweets)
 homeRouter.post('/home/follow/:user_id', isAuth , followController.postHomeSuggestions)
-homeRouter.post('/home/delete/:Id_tweet', isAuth, messageController.deleteTweet)
+homeRouter.post('/home/delete/:tweet_id', isAuth, messageController.deleteTweet)
 
 module.exports = homeRouter;

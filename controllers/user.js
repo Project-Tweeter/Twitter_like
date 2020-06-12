@@ -6,13 +6,13 @@ const Message = require('../models/message')
 exports.getHome = (request, response) => {
     let currentUser = request.params.username
     User.findUsersExceptMe(currentUser, function(error, users){
-    Message.postAllTweets(function(messages){
+    Message.postAllTweets(function(tweets){
         // console.log(messages)
         response.render('home', {
             title:"Home",
             style: "home.css",
             me : request.user.username,
-            message: messages,
+            tweet: tweets,
             user : users,
             username : request.user.username
         })
@@ -28,18 +28,18 @@ exports.getProfil = (request, response) => {
     User.findUsersExceptMe(username, function(error, users){
     User.findUser(username, function(error, user){
         // console.log(user)
-        Message.postAllTweetsCurrentUser(username,function(messages){
+        Message.postAllTweetsCurrentUser(username,function(tweets){
             response.render('profil', {
                 title:"Profil",
                 me : request.user.username,
                 test: test,
                 style: "profil.css",
-                message: messages,
+                tweet: tweets,
                 username : username,
                 link: user[0].link,
                 nom: user[0].nom,
                 prenom: user[0].prenom,
-                id : messages.Id_tweet,
+                id : tweets.Id_tweet,
                 user : users})
         })
     } )
@@ -53,12 +53,11 @@ exports.getTweet = (request, response) => {
     let username = request.params.username
     let id_tweet = request.params.id
     User.findUsersExceptMe(username, function(error, users){
-        Message.tweetUser(id_tweet,function(messages){
-            console.log(messages)
+        Message.postOneTweetCurrentUser(id_tweet,function(tweets){
             response.render('tweet', {
                 title:"Tweet",
                 style: "tweet.css",
-                message: messages,
+                tweet: tweets,
                 me : username,
                 user : users})
         })

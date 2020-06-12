@@ -18,7 +18,7 @@ exports.postTweets = (request, response) => {
 };
 
 exports.deleteTweet = (request, response) => {
-    let tweet_id = request.params.Id_tweet;
+    let tweet_id = request.params.tweet_id;
     Message.deleteTweet( tweet_id, function (){
         response.redirect('/home/' + request.user.username);
 })

@@ -5,37 +5,37 @@ class Message {
     
 
     static createTweet(currentIdUser, content, callback){
-        db.query('INSERT INTO tweets SET id_user = ?, content= ?, created_at = ?', [currentIdUser, content, new Date()], (error, result) => { 
+        db.query('INSERT INTO tweets SET user_id = ?, content= ?, created_at = ?', [currentIdUser, content, new Date()], (error, result) => { 
             if (error) throw error
             callback(result)
         })
     }
 
     static postAllTweets(callback) {
-        db.query('SELECT * FROM tweets LEFT JOIN users ON tweets.id_user = users.id ORDER BY created_at DESC', (error, rows) => {
+        db.query('SELECT * FROM tweets LEFT JOIN users ON tweets.user_id = users.id ORDER BY created_at DESC', (error, tweets) => {
             if (error) throw error
-            callback(rows)
+            callback(tweets)
         })
     }
 
     static postAllTweetsCurrentUser(username, callback) {
-        db.query('SELECT * FROM tweets LEFT JOIN users ON tweets.id_user = users.id WHERE username = ? ORDER BY created_at DESC ',[username], (error, rows) => {
+        db.query('SELECT * FROM tweets LEFT JOIN users ON tweets.user_id = users.id WHERE username = ? ORDER BY created_at DESC ',[username], (error, tweets) => {
             if (error) throw error
-            callback(rows)
+            callback(tweets)
         })
     }
 
-    static tweetUser(id_tweet, callback) {
-        db.query('SELECT * FROM tweets LEFT JOIN users ON tweets.id_user = users.id WHERE id_tweet = ? ',[id_tweet], (error, row) => {
+    static postOneTweetCurrentUser(tweet_id, callback) {
+        db.query('SELECT * FROM tweets LEFT JOIN users ON tweets.user_id = users.id WHERE tweet_id = ? ',[tweet_id], (error, tweet) => {
             if (error) throw error
-            callback(row)
+            callback(tweet)
         })
     }
 
-    static deleteTweet( Id_tweet, callback) {
-        db.query( 'DELETE FROM tweets WHERE Id_tweet = ?',[ Id_tweet], (error, row) => {
+    static deleteTweet( tweet_id, callback) {
+        db.query( 'DELETE FROM tweets WHERE tweet_id = ?',[tweet_id], (error, tweet) => {
             if (error) throw error
-            callback(row)
+            callback(tweet)
         })
     }
     
