@@ -16,8 +16,6 @@ app.engine('.hbs', expbs({
 }));
 app.set('view engine', 'hbs');
 
-app.use("/:username/assets", express.static("assets"));
-app.use("/:username/:id/assets", express.static("assets"));
 app.use("/assets", express.static("assets"));
 
 

@@ -1,23 +1,14 @@
 <main id="tweet_main">
-
-{{> menu}}
-
-<section id="tweet_center">
-    <div class="tweet_container-top">
-        <a href="/profil/{{me}}"><img src="/assets/images/back.svg" height="20px"alt=""></a>
-        <h1 class="tweet_container-title">Tweeter</h1>
-    </div>
-    
-    <div class="tweet_container-decoration"></div>
-
-    {{#each message}} 
-
-    {{> tweetos}}
-
-    {{/each}} 
-
-</section>
-
-{{> suggestions}}
-
+    {{> menu}}
+    <section id="tweet_center">
+        <div class="tweet_container-top">
+            <a href="/profil/{{me}}"><img src="/assets/images/back.svg" height="20px" alt=""></a>
+            <h1 class="tweet_container-title">Tweeter</h1>
+        </div>
+        <div class="tweet_container-decoration"></div>
+        {{#each message}}
+            {{> tweetos}}
+        {{/each}}
+    </section>
+    {{> suggestions}}
 </main>

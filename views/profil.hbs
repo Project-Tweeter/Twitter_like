@@ -1,17 +1,12 @@
 <main id="profil_main">
-
-
     {{> menu}}
     {{#if isFollow}}
         <p>J'ai des follewer</p>
-
     {{/if}}
-
     <section id="profil_center">
         <div class="profil_container1">
             <h1 class="profil_container1-title">{{username}}</h1>
         </div>
-
         <div class="profil_container2">
             {{#with users}}
                 <div class="profil_container2_background">
@@ -27,42 +22,28 @@
                     </div>
                 </div>
             {{/with}}
-
             <div class="button_update-profil"><a href="/edit/{{username}}">Modifier profil</a></div>
             {{#if isFollow}}
                 {{#with users}}
                     <form action="/unfollow" method="POST">
                         <input type="hidden" name='unfollow' value={{id_user}}>
-                        <button class="button_update-profil" type='submit' value="Unfollow">UnFollow</button>
+                        <button class="button_update-profil" type='submit'>UnFollow</button>
                     </form>
                 {{/with}}
             {{else}}
                 {{#with users}}
                     <form action="/follow" method="POST">
                         <input type="hidden" name='tofollow' value={{id_user}}>
-                        <button class="button_update-profil" type='submit' value="Follow">Follow</button>
+                        <button class="button_update-profil" type='submit'>Follow</button>
                     </form>
                     {{!-- if else --}}
                 {{/with}}
-
             {{/if}}
-
-
-
-
-
         </div>
-
-
         <div class="profil_container3"></div>
         {{#each message}}
-
             {{> tweetos}}
-
         {{/each}}
-
     </section>
-
     {{> suggestions}}
-
 </main>
