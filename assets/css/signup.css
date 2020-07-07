@@ -1,58 +1,57 @@
-*{
-    padding: 0;
-    margin: 0;
-    font-family: Helvetica, sans-serif;
-    outline:none;
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  outline: none;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
 h1 {
-    font-size: 1.3em;
+  font-size: 1.3em;
 }
 
 #connection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
- }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .connection-title {
-    padding: 3% 0;
-    color: #14171A;
+  padding: 3% 0;
+  color: #14171a;
 }
 
 .connection-img {
-    padding-top: 1.5%;
-    width: 3vw;
+  padding-top: 1.5%;
+  width: 3vw;
 }
 
-.connection-form  {
-    width: 40%;
+.connection-form {
+  width: 40%;
 }
-
 
 .connection-form .connection-form_label .connection-form_input {
-    color: black ;
-	background: none;
-	border: none;
-    line-height: 1em;
-	font-weight: 500;
-	padding: 0.25em 0.25em;
-    width: 98%;
-    border-bottom: #657786 solid 2px;
+  color: black;
+  background: none;
+  border: none;
+  line-height: 1em;
+  font-weight: 500;
+  padding: 0.25em 0.25em;
+  width: 98%;
+  border-bottom: #657786 solid 2px;
 }
 
 .connection-form .connection-form_label .connection-form_input:focus {
-    border-bottom: #1DA1F2 solid 2px;
+  border-bottom: #1da1f2 solid 2px;
 }
 
-.connection-form .connection-form_label .label-text{
-    color: #657786 ;
-	font-size: 0.9em;
-    padding-left: 0.5em;
+.connection-form .connection-form_label .label-text {
+  color: #657786;
+  font-size: 0.9em;
+  padding-left: 0.5em;
 }
 
 .connection-form .connection-form_nom,
@@ -60,49 +59,45 @@ h1 {
 .connection-form .connection-form_birthday,
 .connection-form .connection-form_mdp,
 .connection-form .connection-form_email,
-.connection-form .connection-form_username
- {
-    background-color:#F5F8FA ;
-    margin-bottom: 5%;
+.connection-form .connection-form_username {
+  background-color: #f5f8fa;
+  margin-bottom: 5%;
 }
-
 
 .connection-button {
-    text-decoration:none;	
-	background-color:#8DCFF8;
-	border:none;
-    border-radius:100px;
-    width: 100%;
-    padding: 3% 0;
-    transition: 0.5s;
-    color: white;
-   font-weight: bold;
-   font-size: 0.9em;
+  text-decoration: none;
+  background-color: #8dcff8;
+  border: none;
+  border-radius: 100px;
+  width: 100%;
+  padding: 3% 0;
+  transition: 0.5s;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9em;
 }
 
-.connection-button:hover {	
-	background-color:#1A91DA;
+.connection-button:hover {
+  background-color: #1a91da;
 }
 
-
-.connection-container{
-    display: flex;
-    padding-top: 2%;
-    justify-content: space-around;
-    width: 25%;
+.connection-container {
+  display: flex;
+  padding-top: 2%;
+  justify-content: space-around;
+  width: 25%;
 }
 
 .connection-container .connection-container_link {
-    color: #1DA1F2;
-    font-size: 0.9em;
+  color: #1da1f2;
+  font-size: 0.9em;
 }
 
-
-#back  {
-    height: 3vh;
-    padding-left: 2%;
-    padding-top: 1%;
- }
-#back .connection_link-previous img{
-   height: 100%;
+#back {
+  height: 3vh;
+  padding-left: 2%;
+  padding-top: 1%;
+}
+#back .connection_link-previous img {
+  height: 100%;
 }

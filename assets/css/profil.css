@@ -1,101 +1,98 @@
-
-
 #profil_main {
-    display: flex;
+  display: flex;
 }
 
 #profil_center {
-    width: 52%;
-    height: 100vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    border: 0.5px solid rgb(215, 221, 224) ;
- }
+  width: 52%;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 0.5px solid rgb(215, 221, 224);
+}
 
 #profil_center .profil_container1 {
-     padding: 2% 0;
-     border-bottom: 0.5px solid rgb(215, 221, 224) ;
+  padding: 2% 0;
+  border-bottom: 0.5px solid rgb(215, 221, 224);
 }
 
-#profil_center .profil_container1-title{
-     font-size: 1.1em;
-     padding-left: 2%;
+#profil_center .profil_container1-title {
+  font-size: 1.1em;
+  padding-left: 2%;
 }
 
- #profil_center .profil_container2{
-    display: flex;
-    flex-direction: column;
+#profil_center .profil_container2 {
+  display: flex;
+  flex-direction: column;
 }
 
-#profil_center .profil_container2_background{
-    background: url(/assets/images/31056991-29406133.jpg) no-repeat center/ cover;
-    padding: 0 0 20% 0;
-    width: 100%;
-    position: relative;
+#profil_center .profil_container2_background {
+  background: url(/assets/images/31056991-29406133.jpg) no-repeat center/ cover;
+  padding: 0 0 20% 0;
+  width: 100%;
+  position: relative;
 }
 
 #profil_center .profil_container2_background img {
-    position: absolute;
-    bottom: -40%;
-    border-radius: 100%;
-    width: 15%;
-    border: white solid 5px;
-    margin-left: 2%;
+  position: absolute;
+  bottom: -40%;
+  border-radius: 100%;
+  width: 15%;
+  border: white solid 5px;
+  margin-left: 2%;
 }
 
-#profil_center .profil_container2_content-user{
-padding-top: 10%;
-padding-left: 2%;
-padding-bottom: 2%;
+#profil_center .profil_container2_content-user {
+  padding-top: 10%;
+  padding-left: 2%;
+  padding-bottom: 2%;
 }
 
-#profil_center .profil_container2_content-user h2{
-    font-size: 1.2em;
+#profil_center .profil_container2_content-user h2 {
+  font-size: 1.2em;
 }
-#profil_center .profil_container2_content-user h3{
-    font-size: 0.9em;
-    font-weight: 500;
-    padding: 0 0 1% 0;
-}
-    
-#profil_center .profil_container2_content-user p{
-   color: rgb(145, 145, 145);
-   font-size: 0.9em;
+#profil_center .profil_container2_content-user h3 {
+  font-size: 0.9em;
+  font-weight: 500;
+  padding: 0 0 1% 0;
 }
 
-#profil_center .profil_container2_content-user .content-user_paragraph{
-display: flex;
+#profil_center .profil_container2_content-user p {
+  color: rgb(145, 145, 145);
+  font-size: 0.9em;
 }
 
-#profil_center .profil_container2_content-user .content-user_paragraph p:last-child{
-   padding-left: 2%;
+#profil_center .profil_container2_content-user .content-user_paragraph {
+  display: flex;
+}
+
+#profil_center
+  .profil_container2_content-user
+  .content-user_paragraph
+  p:last-child {
+  padding-left: 2%;
 }
 
 #profil_center .profil_container3 {
-    padding-bottom: 2%;
-    background-color: #E6ECF0;
+  padding-bottom: 2%;
+  background-color: #e6ecf0;
 }
 
-#profil_center .button_update-profil{
-    text-decoration:none;	
-	border:solid rgb(215, 221, 224) 1px;
-    border-radius:100px;
-    width: 20%;
-    padding: 1.5% 0 1.5% 2%;
-    margin-left: 2%;
-    margin-bottom: 2%;
-    cursor: pointer;
-    color: white;
-    font-size: 0.9em;
-    transition: border 0.5s;
+#profil_center .button_update-profil {
+  text-decoration: none;
+  border: solid rgb(215, 221, 224) 1px;
+  border-radius: 100px;
+  width: 20%;
+  padding: 1.5% 0 1.5% 2%;
+  margin-left: 2%;
+  margin-bottom: 2%;
+  cursor: pointer;
+  color: white;
+  font-size: 0.9em;
+  transition: border 0.5s;
 }
 
-#profil_center .button_update-profil:hover{
-	border:solid rgb(33, 159, 223) 1px;
+#profil_center .button_update-profil:hover {
+  border: solid rgb(33, 159, 223) 1px;
 }
-
-
-
-

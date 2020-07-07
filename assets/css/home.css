@@ -1,74 +1,73 @@
-
 #home_main {
-    display: flex;
-    height: 30%;
+  display: flex;
+  height: 30%;
 }
 
 #home_center {
-    width: 52%;
-    height: 100vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    border: 0.5px solid rgb(215, 221, 224) ;
- }
-
-#home_center .home_container-accueil{
-     padding: 2% 0;
-     border-bottom: 0.5px solid rgb(215, 221, 224) ;
+  width: 52%;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 0.5px solid rgb(215, 221, 224);
 }
 
-#home_center .home_container-accueil_title{
-     font-size: 1.1em;
-     padding-left: 2%;
+#home_center .home_container-accueil {
+  padding: 2% 0;
+  border-bottom: 0.5px solid rgb(215, 221, 224);
 }
 
-#home_center .home_container-tweeter{
-    display: flex;
-    padding: 2% 2% 8% 2%;
-    position: relative;
-}
-#home_center .home-tweet_form{
-width: 100%;
+#home_center .home_container-accueil_title {
+  font-size: 1.1em;
+  padding-left: 2%;
 }
 
-#home_center .home-tweet_form #message{
-    background: none;
-    border: none;
-    width:100%;
-    resize: none;
-    margin-bottom: 2%;
+#home_center .home_container-tweeter {
+  display: flex;
+  padding: 2% 2% 8% 2%;
+  position: relative;
 }
-#home_center .home-tweet_form #message:focus{
-	border-bottom: 0.5px solid rgb(215, 221, 224) ;
+#home_center .home-tweet_form {
+  width: 100%;
 }
 
-#message::placeholder{
-    color: rgb(99, 98, 98);
+#home_center .home-tweet_form #message {
+  background: none;
+  border: none;
+  width: 100%;
+  resize: none;
+  margin-bottom: 2%;
+}
+#home_center .home-tweet_form #message:focus {
+  border-bottom: 0.5px solid rgb(215, 221, 224);
+}
+
+#message::placeholder {
+  color: rgb(99, 98, 98);
 }
 
 #home_center .home-tweet_form_button {
-    text-decoration:none;	
-	background-color:#8DCFF8;
-	border:none;
-    border-radius:100px;
-    width: 15%;
-    padding: 1.8% 0;
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-    font-size: 0.9em;
-    position: absolute;
-    right: 2%;
-    transition: background-color 0.5s;
+  text-decoration: none;
+  background-color: #8dcff8;
+  border: none;
+  border-radius: 100px;
+  width: 15%;
+  padding: 1.8% 0;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9em;
+  position: absolute;
+  right: 2%;
+  transition: background-color 0.5s;
 }
 
-#home_center .home-tweet_form_button:hover {	
-	background-color:#1A91DA;
+#home_center .home-tweet_form_button:hover {
+  background-color: #1a91da;
 }
 
 #home_center .home_container-decoration {
-    padding-bottom: 2%;
-    background-color: #E6ECF0;
+  padding-bottom: 2%;
+  background-color: #e6ecf0;
 }

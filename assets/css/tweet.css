@@ -1,39 +1,34 @@
-
 #tweet_main {
-    display: flex;
+  display: flex;
 }
 
 #tweet_center {
-    width: 52%;
-    height: 100vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    border: 0.5px solid rgb(215, 221, 224) ;
- }
-
- .tweet_container-top {
-     padding: 2% 0;
-     border-bottom: 0.5px solid rgb(215, 221, 224) ;
-     display: flex;
-     align-items: center;
- }
-
- .tweet_container-top a{
-    padding-left: 2%;
+  width: 52%;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 0.5px solid rgb(215, 221, 224);
 }
 
- .tweet_container-title{
-     font-size: 1.1em;
-     padding-left: 2%;
- }
+.tweet_container-top {
+  padding: 2% 0;
+  border-bottom: 0.5px solid rgb(215, 221, 224);
+  display: flex;
+  align-items: center;
+}
 
+.tweet_container-top a {
+  padding-left: 2%;
+}
+
+.tweet_container-title {
+  font-size: 1.1em;
+  padding-left: 2%;
+}
 
 .tweet_container-decoration {
-    padding-bottom: 2%;
-    background-color: #E6ECF0;
+  padding-bottom: 2%;
+  background-color: #e6ecf0;
 }
-
-
-

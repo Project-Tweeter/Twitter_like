@@ -1,89 +1,88 @@
-
-.tweetos_container{
-    border-bottom: solid rgb(215, 221, 224) 0.5px;
-    padding: 2% 0;
-    transition: 0.5s;
+.tweetos_container {
+  border-bottom: solid rgb(215, 221, 224) 0.5px;
+  padding: 2% 0;
+  transition: 0.5s;
 }
 
- .tweetos_container:hover{
-    background-color: #F5F8FA;
+.tweetos_container:hover {
+  background-color: #f5f8fa;
 }
 
-.tweetos_container-tweet{
-    display: flex;
+.tweetos_container-tweet {
+  display: flex;
 }
 
- .tweetos_container-img{
-    width: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 2%;
+.tweetos_container-img {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2%;
 }
- .tweetos_container-img img{
-    border-radius: 100%;
-    width: 100%;
+.tweetos_container-img img {
+  border-radius: 100%;
+  width: 100%;
 }
 
- .tweetos_container-content{
-    width: 90%;
-    padding-left: 2%;
-    display: flex;
-    flex-direction: column;
+.tweetos_container-content {
+  width: 90%;
+  padding-left: 2%;
+  display: flex;
+  flex-direction: column;
 }
 
 .tweetos_container-tweet_content_name {
-    display: flex;
-    align-items: flex-end;
-    font-size: 0.9em;
-    color: rgb(145, 145, 145);
-    font-weight: 500;
+  display: flex;
+  align-items: flex-end;
+  font-size: 0.9em;
+  color: rgb(145, 145, 145);
+  font-weight: 500;
 }
-.tweetos_container-tweet_content_name h1{
-    font-size: 1em;
+.tweetos_container-tweet_content_name h1 {
+  font-size: 1em;
 }
-.tweetos_container-tweet_content_name a{
-    padding-top: 1%;
-    padding-right: 2%;
-    transition: text-decoration 0.5s;
+.tweetos_container-tweet_content_name a {
+  padding-top: 1%;
+  padding-right: 2%;
+  transition: text-decoration 0.5s;
 }
-.tweetos_container-tweet_content_name a:hover{
-    text-decoration: underline;
-}
-
-.tweetos_container-tweet_content_string a{
-    font-weight: 500;
-     transition: color 0.5s;
- }
- .tweetos_container-tweet_content_string a:hover{
-     color:rgb(95, 90, 90);
- } 
-
-.tweetos_container-tweet_content_string{
-    padding-top: 1%;
-    width: 95%;
-    overflow-wrap: break-word;
-    font-weight: 500;
- }
-
- form{
-     padding-top: 2%;
- }
- 
-.tweetos-button {	
-    text-decoration:none;	
-	background-color:rgb(248, 141, 141);
-	border:none;
-    border-radius:100px;
-    width: 20%;
-    padding: 1.5% 0;
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-    font-size: 0.9em;
-    transition: background-color 0.5s;
+.tweetos_container-tweet_content_name a:hover {
+  text-decoration: underline;
 }
 
-.tweetos-button:hover {	
-	background-color:rgb(97, 97, 97);
+.tweetos_container-tweet_content_string a {
+  font-weight: 500;
+  transition: color 0.5s;
+}
+.tweetos_container-tweet_content_string a:hover {
+  color: rgb(95, 90, 90);
+}
+
+.tweetos_container-tweet_content_string {
+  padding-top: 1%;
+  width: 95%;
+  overflow-wrap: break-word;
+  font-weight: 500;
+}
+
+form {
+  padding-top: 2%;
+}
+
+.tweetos-button {
+  text-decoration: none;
+  background-color: rgb(248, 141, 141);
+  border: none;
+  border-radius: 100px;
+  width: 20%;
+  padding: 1.5% 0;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9em;
+  transition: background-color 0.5s;
+}
+
+.tweetos-button:hover {
+  background-color: rgb(97, 97, 97);
 }
