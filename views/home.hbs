@@ -1,30 +1,30 @@
 <main id="home_main">
 
-{{> menu}}
+    {{> menu}}
 
-<section id="home_center">
-    <div class="home_container-accueil">
-        <h1 class="home_container-accueil_title">Home</h1>
-    </div>
-    <div class="home_container-tweeter">
-        <form action="/home/:username" method="post" class="home-tweet_form">
-            <div class="home-tweet_form_container">
-                <label class="home-tweet_form_label"></label>
+    <section id="home_center">
+        <div class="home_container-accueil">
+            <h1 class="home_container-accueil_title">Home</h1>
+        </div>
+        <div class="home_container-tweeter">
+            <form action="/home/:username" method="post" class="home-tweet_form">
+                <div class="home-tweet_form_container">
+                    <label class="home-tweet_form_label"></label>
                     <textarea id="message" name="message" placeholder="Quoi de neuf ?" maxlength="140"></textarea>
-            </div>
-            <button type="submit "class="home-tweet_form_button">Tweeter</button>
-        </form>
-    </div>
-    <div class="home_container-decoration"></div>
+                </div>
+                <button type="submit " class="home-tweet_form_button">Tweeter</button>
+            </form>
+        </div>
+        <div class="home_container-decoration"></div>
 
-    {{#each tweet}} 
-    
-    {{> tweetos}}
+        {{#each tweet}}
 
-    {{/each}} 
-    
-</section>
+        {{> tweetos}}
 
-{{> suggestions}}
+        {{/each}}
+
+    </section>
+
+    {{> suggestions}}
 
 </main>

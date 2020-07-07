@@ -22,10 +22,9 @@ router.post(
   "/",
   passport.authenticate("local", {
     failureRedirect: "/",
-    failureFlash: "Username ou password faux, recommencez !",
+    failureFlash: "Username ou password faux, veuillez réessayer.",
   }),
   function (request, response) {
-    // console.log(req.user);
     response.redirect("/home/" + request.user.username);
   }
 );

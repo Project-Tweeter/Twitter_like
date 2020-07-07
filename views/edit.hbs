@@ -1,44 +1,44 @@
 <main id="profil_main">
 
 
-{{> menu}}
+    {{> menu}}
 
-<section id="profil_center">
-   <form action="/edit/:username" method="post" class="connection-form">
-        <div class="connection-form_nom">
-            <label class="connection-form_label">
-                <span class="label-text">Nom</span>
-                <input class="connection-form_input" type="text" name="nom" value="{{nom}}">
-            </label>
-        </div>
-        <div class="connection-form_prenom">
-            <label class="connection-form_label">
-                <span class="label-text">Prenom</span>
-                <input class="connection-form_input" type="text" name="prenom" value="{{prenom}}">
-            </label>
-        </div>
-        <div class="connection-form_email">
-            <label class="connection-form_label">
-                <span class="label-text">Email</span>
-                <input class="connection-form_input" type="email" name="email" value="{{email}}">
-            </label>
-        </div>
-        <div class="connection-form_username">
-            <label class="connection-form_label">
-                <span class="label-text">Username</span>
-                <input class="connection-form_input" type="text" name="username" value="{{username}}">
-            </label>
-        </div>
-        <div class="connection-form_username">
-            <label class="connection-form_label">
-                <span class="label-text">Image</span>
-                <input class="connection-form_input" type="text" name="link" value="{{link}}">
-            </label>
-        </div>
-        <button class="connection-button" type="submit" >Modifier</button>
-    </form>
-    
-</section>
- 
+    <section id="profil_center">
+        <form action="/edit/:username" method="post" class="connection-form">
+            <div class="connection-form_nom">
+                <label class="connection-form_label">
+                    <span class="label-text">Nom</span>
+                    <input class="connection-form_input" type="text" name="nom" value="{{nom}}">
+                </label>
+            </div>
+            <div class="connection-form_prenom">
+                <label class="connection-form_label">
+                    <span class="label-text">Prenom</span>
+                    <input class="connection-form_input" type="text" name="prenom" value="{{prenom}}">
+                </label>
+            </div>
+            <div class="connection-form_email">
+                <label class="connection-form_label">
+                    <span class="label-text">Email</span>
+                    <input class="connection-form_input" type="email" name="email" value="{{email}}">
+                </label>
+            </div>
+            <div class="connection-form_username">
+                <label class="connection-form_label">
+                    <span class="label-text">Username</span>
+                    <input class="connection-form_input" type="text" name="username" value="{{username}}">
+                </label>
+            </div>
+            <div class="connection-form_username">
+                <label class="connection-form_label">
+                    <span class="label-text">Image</span>
+                    <input class="connection-form_input" type="text" name="link" value="{{link}}">
+                </label>
+            </div>
+            <button class="connection-button" type="submit">Modifier</button>
+        </form>
+
+    </section>
+
 
 </main>
