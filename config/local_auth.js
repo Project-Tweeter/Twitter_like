@@ -1,6 +1,7 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const userService = require("../models/user.js");
+const bcrypt = require("bcryptjs");
 
 module.exports = () => {
   passport.use(
@@ -11,7 +12,6 @@ module.exports = () => {
       done
     ) {
       userService.findUser(username, function (err, user) {
-        let bcrypt = require("bcryptjs");
         user = user[0];
         if (err) return done(err);
 

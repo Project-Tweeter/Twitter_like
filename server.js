@@ -21,8 +21,6 @@ app.engine(
   })
 );
 app.set("view engine", "hbs");
-app.use("/:username/assets", express.static("assets"));
-app.use("/:username/:id/assets", express.static("assets"));
 app.use("/assets", express.static("assets"));
 
 //moment Handlebars, pour afficher la date en direct
@@ -30,15 +28,14 @@ MomentHandler.registerHelpers(Handlebars);
 
 //lancement du body parser pour recupérer et gérer les requêtes des formulaires
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 //lancement de connect-flash pour les messages d'erreur à l'authentification
 app.use(flash());
 
 //lancement d'express session, avec le cookie, le temps de durée de la session en milliseconds
 app.use(
   session({
-    secret: "secretjfhjgjhg",
-    cookie: { maxAge: 600000 },
+    secret: process.env.SECRET,
+    cookie: { maxAge: 3600000 },
     resave: false,
     saveUninitialized: false,
   })

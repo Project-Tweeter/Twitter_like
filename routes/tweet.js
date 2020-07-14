@@ -4,6 +4,6 @@ const userController = require("../controllers/user");
 
 const tweetRouter = express.Router();
 
-tweetRouter.get("/tweet/:username/:id", isAuth, userController.getTweet);
+tweetRouter.get("/tweet/:username/:id", isAuth, userController.showTweet);
 
 module.exports = tweetRouter;

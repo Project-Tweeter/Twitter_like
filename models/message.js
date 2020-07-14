@@ -12,7 +12,7 @@ class Message {
     );
   }
 
-  static postAllTweets(callback) {
+  static showAllTweets(callback) {
     db.query(
       "SELECT * FROM tweets LEFT JOIN users ON tweets.user_id = users.id ORDER BY created_at DESC",
       (error, tweets) => {
@@ -22,7 +22,7 @@ class Message {
     );
   }
 
-  static postAllTweetsCurrentUser(username, callback) {
+  static showAllTweetsCurrentUser(username, callback) {
     db.query(
       "SELECT * FROM tweets LEFT JOIN users ON tweets.user_id = users.id WHERE username = ? ORDER BY created_at DESC ",
       [username],
@@ -33,7 +33,7 @@ class Message {
     );
   }
 
-  static postOneTweetCurrentUser(tweet_id, callback) {
+  static showOneTweetCurrentUser(tweet_id, callback) {
     db.query(
       "SELECT * FROM tweets LEFT JOIN users ON tweets.user_id = users.id WHERE tweet_id = ? ",
       [tweet_id],

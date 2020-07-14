@@ -5,6 +5,6 @@ const userController = require("../controllers/user");
 
 const profilRouter = express.Router();
 
-profilRouter.get("/profil/:username", isAuth, userController.getProfil);
+profilRouter.get("/profil/:username", isAuth, userController.showProfilePage);
 
 module.exports = profilRouter;

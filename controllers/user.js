@@ -2,10 +2,10 @@ const User = require("../models/user");
 const Message = require("../models/message");
 
 // ici on utilise le controller User pour le HOME qui est relié à sa route GET
-exports.getHome = (request, response) => {
+exports.showHomePage = (request, response) => {
   let currentUser = request.params.username;
   User.findUsersExceptMe(currentUser, function (error, users) {
-    Message.postAllTweets(function (tweets) {
+    Message.showAllTweets(function (tweets) {
       response.render("home", {
         title: "Home",
         style: "home.css",
@@ -19,12 +19,12 @@ exports.getHome = (request, response) => {
 };
 
 // ici on utilise le controller User pour le PROFIL qui est relié à sa route GET
-exports.getProfil = (request, response) => {
+exports.showProfilePage = (request, response) => {
   let username = request.params.username;
   let test = request.user.id;
-  User.findUsersExceptMe(username, function (error, users) {
-    User.findUser(username, function (error, user) {
-      Message.postAllTweetsCurrentUser(username, function (tweets) {
+  User.findUsersExceptMe(username, (error, users) => {
+    User.findUser(username, (error, user) => {
+      Message.showAllTweetsCurrentUser(username, (tweets) => {
         response.render("profil", {
           title: "Profil",
           me: request.user.username,
@@ -44,11 +44,11 @@ exports.getProfil = (request, response) => {
 };
 
 // ici on utilise le controller User pour le TWEET qui est relié à sa route GET
-exports.getTweet = (request, response) => {
+exports.showTweet = (request, response) => {
   let username = request.params.username;
   let id_tweet = request.params.id;
-  User.findUsersExceptMe(username, function (error, users) {
-    Message.postOneTweetCurrentUser(id_tweet, function (tweets) {
+  User.findUsersExceptMe(username, (error, users) => {
+    Message.showOneTweetCurrentUser(id_tweet, (tweets) => {
       response.render("tweet", {
         title: "Tweet",
         style: "tweet.css",
@@ -61,7 +61,7 @@ exports.getTweet = (request, response) => {
 };
 
 // ici on utilise le controller User pour le SIGNUP qui est relié à sa route POST
-exports.postSignup = (request, response) => {
+exports.createUser = (request, response) => {
   User.createUser(
     request.body.nom,
     request.body.prenom,
@@ -70,14 +70,14 @@ exports.postSignup = (request, response) => {
     request.body.password,
     request.body.username,
     request.body.link,
-    function () {
+    () => {
       console.log("user crée !");
       response.redirect("/");
     }
   );
 };
 
-exports.postEdit = (request, response) => {
+exports.updateUser = (request, response) => {
   User.updateUser(
     request.body.nom,
     request.body.prenom,
@@ -85,15 +85,15 @@ exports.postEdit = (request, response) => {
     request.body.username,
     request.body.link,
     request.user.id,
-    function () {
+    () => {
       response.redirect("/");
     }
   );
 };
 
-exports.getEdit = (request, response) => {
+exports.showEditPage = (request, response) => {
   let username = request.params.username;
-  User.findUser(username, function (error, user) {
+  User.findUser(username, (error, user) => {
     response.render("edit", {
       title: "Modifier",
       style: "edit.css",
